@@ -1,7 +1,8 @@
 # Header: (If applied, this commit will) Subject line (no period)
 #
 # Body: Wrap the body at 72 characters. Multi-line description of the
-# commit, feel free to be detailed.
+# commit, feel free to be detailed. Focus on explaining what and why vs
+# how.
 #
 # Footer
 #
