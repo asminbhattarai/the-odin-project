@@ -58,4 +58,27 @@
 
 ## Reflections:
 - I tried setting custom domain name and wasted a lot of time. I should maybe do it after I am a bit more proficient.
-- I should add warp setting to daily log as well; maybe it will look a but better.
+- I should add warp settings to daily log as well; maybe it will look a bit better.
+
+
+# Daily Log - 2024/11/29
+
+## What I worked on:
+- I completed assignments of CSS Foundations.
+- I learnt to inspect HTML and CSS in Google Chrome.
+- I learnt CSS concepts (basic syntax, cascade, box model, display).
+- I improvised HTML project: Recipes based on what I learnt today.
+
+## Challenges faced:
+- Assignment related to combined (CSS) specifity and order was confusing for me.
+
+## Resources:
+- I picked color from [color picker](htmlcolorcodes.com) for webpages.
+
+## Next steps:
+- I plan to learn CSS Flexbox lessons tommorow.
+- I will add syntax highlighting to Vim for better efficiency.
+
+## Reflections
+- CSS: Order is not the only thing that affects styling priority of an element.
+
