@@ -82,3 +82,25 @@
 ## Reflections
 - CSS: Order is not the only thing that affects styling priority of an element.
 
+
+# Daily Log - 2024/11/30
+
+## What I worked on:
+- I completed assignments of Flexbox.
+- I learnt about flex containers, items and axes.
+- I learnt about three properties of shorthand 'flex'.
+- I learnt how to position elements using flexbox.
+
+## Challenges faced:
+- Padding and margin proved confusing when mixed with flex property.
+
+## Resources:
+- I did not use any additional resources today, except the ones mentioned in The Odin Project.
+
+## Next steps:
+- I plan to do project 'Landing Page'.
+- I will implement syntax highlighting to Vim.
+
+## Reflections:
+- Inspecting webpages can help a lot to solve difficult problems.
+- Wrapping daily-log breaks links, so I need to find another method.
