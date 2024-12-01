@@ -1,10 +1,9 @@
-# Header: (If applied, this commit will) Subject line (no period)
+# Header: [Subject line] (imperative, no period)
 #
-# Body: Wrap the body at 72 characters. Multi-line description of the
-# commit, feel free to be detailed. Focus on explaining what and why vs
-# how.
+# Body:
+# Wrap the body at 72 characters.
+# Describe **what** and **why**, not **how**
 #
-# Footer
-#
-# If applied, this commit will
-
+# Footer (optional)
+# - Reference issue numbers, breaking changes, etc.
+# - Example: "Fixes #123", "BREAKING CHANGE: ..."
