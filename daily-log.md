@@ -125,3 +125,25 @@
 
 ## Reflections:
 - Starting to build a webpage based on my own design feels easier than following a pre-existing template or design to the letter.
+
+
+# Daily Log - 2024/12/02
+
+## What I worked on:
+- Learned to run JavaScript code using an HTML file and the browser console.
+- Completed exercises involving variable declarations, number and string operations.
+- Gained a deeper understanding of logical and mathematical operators in JavaScript.
+- Explored JavaScript data types, conditionals, and nesting.
+- Familiarized myself with developer tools, including breakpoints and media query simulation.
+
+## Challenges faced:
+- Understanding how to effectively use breakpoints in the developer tools was a bit tricky. It took time to fully grasp how to pause code execution and inspect variables.
+
+## Resources:
+- Worked through the JavaScript lessons on The Odin Project.
+
+## Next steps:
+- Plan to continue with JavaScript lessons, focusing on functions.
+
+## Reflections:
+- It’s exciting to see how I can already write basic JS code and interact with the browser’s console. I’m looking forward to building more interactive functionality as I progress through the lessons.
