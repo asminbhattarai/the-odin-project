@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Function Basics</title>a
+
+  <style>
+   input {
+    font-size: 2em;
+    margin: 10px 1px 0;
+   }
+  </style>
+ </head>
+
+ <body>
+
+  <!-- function scope -->
+  <script>
+   const x = 1;
+
+   function a() {
+    const y = 2;
+    output(z);
+   }
+
+   function b() {
+    const z = 3;
+    output(z);
+    output(x);
+   }
+
+   function output(value) {
+    const para = document.createElement('p');
+    document.body.appendChild(para);
+    para.textContent = `Value: ${value}`;
+   }
+  </script>
+  <!-- output(x) => value of x -->
+  <!-- output(y) => ReferenceError -->
+  <!-- output(z) => ReferenceError -->
+  <!-- a() => ReferenceError -->
+  <!-- b() => value of z and value of x -->
+  <!-- function scope end -->
+
+  <!-- function return values -->
+  <input class="numberInput" type="text">
+  <p class="p"></p>
+
+  <script>
+   const input = document.querySelector('.numberInput');
+   const para = document.querySelector('.p');
+
+   function squared(num) {
+    return num ** 2;
+   }
+
+   function cubed(num) {
+    return num ** 3;
+   }
+
+   function factorial(num) {
+    if (num < 0) return undefined;
+    if (num < 3) return num;
+    return num * factorial(num - 1);
+   }
+
+   input.addEventListener("change", () => {
+    const num = parseFloat(input.value);
+    if (isNaN(num)) {
+     para.textContent = "You need to enter a number!";
+    } else {
+     para.textContent = `${num} squared is ${squared(num)}. `;
+     para.textContent += `${num} cubed is ${cubed(num)}. `;
+     para.textContent += `${num} factorial is ${factorial(num)}.`;
+    }
+   })
+  </script>
+  <!-- function return values end -->
+
+  <!-- function expressions -->
+   <script>
+    let welcome = function() {
+     const title = document.createElement('h1');
+     document.body.appendChild(title);
+     title.textContent = "Welcome!";
+    }
+
+    welcome();
+   </script>
+  <!-- function expressions end -->
+
+  <!-- arrow functions -->
+  <script>
+   const createPara = text => {
+    const para = document.createElement('p');
+    para.textContent = text;
+    return para;
+   }
+
+   const displayPara = p => document.body.appendChild(p);
+
+   const sum = (n1, n2) => n1 + n2;
+
+   const showSum = (n1, n2) => {
+    const sumText = createPara('Sum is:');
+    const sumValue = createPara(sum(n1, n2));
+    displayPara(sumText);
+    displayPara(sumValue);
+   };
+
+   showSum(12, 17);
+  </script>
+
+  <script>
+   let ask = (question, yes, no) => {
+    if (confirm(question)) yes();
+    else no();
+   }
+
+   ask(
+    "Do you agree?",
+    () => alert("You agreed!"),
+    () => alert("You cancelled the execution.")
+   );
+  </script>
+  <!-- arrow functions end -->
+
+  <!-- assignments -->
+  <script>
+   let add7 = num => num + 7;
+   let multiply = (n1, n2) => n1 * n2;
+   let lastLetter = str => str.at(-1);
+
+   let capitalize = str => str[0].toUpperCase() + str.slice(1).toLowerCase();
+  </script>
+  <!-- add7(2) => 9  -->
+  <!-- multiply(3, 2) => 6  -->
+  <!-- lastLetter('abcd') => d  -->
+  <!-- capitalize('bOtH') => Both  -->
+  <!-- assignments end -->
+
+ </body>
+</html>

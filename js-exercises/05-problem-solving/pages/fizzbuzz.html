@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>FizzBuzz</title>
+ </head>
+
+ <body>
+
+  <!-- Create input box -->
+  <label>Enter a number to FizzBuzz upto: </label>
+  <input type="number" min="1" max="100" >
+  <!-- Create input box end -->
+
+  <!-- Output -->
+  <p></p>
+  <!-- Output end -->
+
+  <!-- Script -->
+  <script>
+
+   // Function to add text to <p>
+   const addToPara = text => document.querySelector("p").innerHTML += `${text}<br>`;
+
+   // Function to clear <p>
+   const clearPara = () => document.querySelector("p").textContent = '';
+
+   // Loop to apply FizzBuzz logic
+   const input = document.querySelector("input");
+   input.addEventListener("input", (event) => {
+
+    // clear <p> when input is detected
+    clearPara();
+
+    // capture input number
+    limit = event.target.value;
+
+    // check if the input is invalid number
+    if (limit === "" || limit < 1 || limit > 100 || limit != Math.floor(limit)) {
+     addToPara("Please enter a natural number in-between 1 and 100.");
+     return;
+    }
+
+    // Main loop
+    for (let i = 1; i <= limit; i++) {
+     if (i % 3 == 0 && i % 5 == 0) {
+      addToPara('FizzBuzz');
+     } else if (i % 3 == 0) {
+      addToPara('Fizz ');
+     } else if (i % 5 == 0) {
+      addToPara('Buzz');
+     } else {
+      addToPara(i);
+     }
+    }
+   });
+
+  </script>
+  <!-- Script end -->
+
+ </body>
+</html>
