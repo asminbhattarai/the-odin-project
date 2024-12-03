@@ -147,3 +147,26 @@
 
 ## Reflections:
 - It’s exciting to see how I can already write basic JS code and interact with the browser’s console. I’m looking forward to building more interactive functionality as I progress through the lessons.
+
+
+# Daily Log - 2024/12/03
+
+## What I worked on:
+- Learned function basics: function definition, invocation, return values, scope, function expressions, and arrow functions.
+- Explored the call stack in JavaScript.
+- Practiced problem-solving techniques: planning, pseudocode, and dividing problems into sub-problems.
+- Solved the FizzBuzz problem.
+- Studied JavaScript errors: ReferenceError, SyntaxError, and TypeError, and learned to resolve them by researching error messages.
+- Worked on the MDN number guessing game assignment and solved errors using the [MDN error handling guide](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_went_wrong).
+
+## Challenges faced:
+- Struggled with arrow functions and understanding TypeErrors.
+
+## Resources:
+- Worked through the JavaScript lessons on The Odin Project.
+
+## Next steps:
+- Plan to start the "Rock, Paper, Scissors" project, focusing on console-based implementation.
+
+## Reflections:
+- Function basics are starting to feel more intuitive, but debugging TypeErrors is still tricky. It’s crucial to understand scope and function execution flow for smoother coding.
