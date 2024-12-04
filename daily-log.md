@@ -170,3 +170,30 @@
 
 ## Reflections:
 - Function basics are starting to feel more intuitive, but debugging TypeErrors is still tricky. It’s crucial to understand scope and function execution flow for smoother coding.
+
+
+# Daily Log - 2024/12/04
+
+## What I worked on:
+- Worked on the "Rock, Paper, Scissors" console project in JavaScript.
+- Focused on problem-solving and followed the steps from the Problem Solving lesson: planning, pseudocoding, writing the code, and testing it.
+- Learned about clean code practices, including how to distinguish between hard-to-read and easy-to-read code, and used programming principles to improve code readability.
+- Installed nvm (Node Version Manager), and practiced running the Node console.
+- Worked on using arrays, loops, and test-driven development (TDD) exercises.
+
+## Challenges faced:
+- Writing clean code was more difficult than expected, especially when it came to making the code easy to understand and maintain.
+- Also faced some challenges when adding custom functionality to the project.
+
+## Resources:
+- Used resources provided by The Odin Project.
+- Found a helpful StackOverflow link to detect Mac OS in JavaScript: [Detect Mac OS](https://stackoverflow.com/questions/10527983/best-way-to-detect-mac-os-x-or-windows-computers-with-javascript-or-jquery#:~:text=var%20isMac%20%3D%20navigator.platform.toUpperCase\(\).indexOf(%27MAC%27)%3E%3D0%3B).
+
+## Next steps:
+- Plan to work on DOM manipulation and events.
+- Improve the "Rock, Paper, Scissors" game.
+
+## Reflections:
+- Writing clean code is definitely easier said than done. It takes a lot of practice and careful attention to detail.
+- I’m looking forward to adding more functionality and improving my code further.
+
