@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Arrays and Loops</title>
+ </head>
+
+ <body>
+
+   <!-- Countdown -->
+   <p>Active Cooldown:<p>
+   <ul></ul>
+
+   <script>
+     const ul = document.querySelector('ul');
+     ul.style.listStyleType = "none";
+
+     for (let i = 10; i >= 0; i--) {
+       let li = document.createElement('li');
+       li.textContent = i;
+       ul.appendChild(li);
+     }
+   </script>
+   <!-- Countdown end -->
+
+   <!-- Admitting Guests -->
+   <p>Admiiting Guests</p>
+   <ul id="invitedGuests"></ul>
+
+   <script>
+     const invitedGuests = document.getElementById('invitedGuests');
+     const people = ['Chris', 'Anne', 'Colin', 'Terri', 'Phil', 'Lola', 'Sam', 'Kay', 'Bruce'];
+     const uninvited = ['Phil', 'Lola'];
+
+     // filter out uninvited people
+     let invite = people.filter ( x => !uninvited.includes(x));
+
+     invite.forEach( x => {
+       let li = document.createElement('li');
+       li.textContent = x;
+       invitedGuests.appendChild(li);
+     });
+   </script>
+   <!-- Admitting Guests -->
+
+ </body>
+</html>
