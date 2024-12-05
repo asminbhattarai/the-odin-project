@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>FizzBuzz</title>
+
+  <style>
+  p {
+    /* preserve white spaces including text breaks */
+    white-space: pre-wrap;
+  }
+  </style>
  </head>
 
  <body>
@@ -21,7 +28,7 @@
   <script>
 
    // Function to add text to <p>
-   const addToPara = text => document.querySelector("p").innerHTML += `${text}<br>`;
+   const addToPara = text => document.querySelector("p").textContent += text + "\n";
 
    // Function to clear <p>
    const clearPara = () => document.querySelector("p").textContent = '';
