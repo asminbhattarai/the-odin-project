@@ -162,3 +162,21 @@
 - Revisit the "Rock, Paper, Scissors" game.
 
 ---
+
+# Daily Log - 2024/12/09
+
+## What I worked on:
+- Gained a solid understanding of the DOM in JavaScript, including its role in manipulating webpage content.
+- Learned about nodes and elements, and how to target them using selectors.
+- Explored methods for finding, adding, removing, and altering DOM nodes.
+- Understood the difference between a NodeList and an array of nodes.
+- Learned about event bubbling and its role in event handling.
+
+## Resources:
+- Worked through the DOM Manipulation and Events section on The Odin Project.
+
+## Next steps:
+- Will learn about Git branches.
+- Revisit the Rock, Paper, Scissors project.
+
+---
