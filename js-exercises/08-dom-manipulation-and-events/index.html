@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>DOM Manipulation and Events</title>
+
+  <!-- mdn exercises -->
+  <style>
+   .highlight {
+    color: red;
+    background-color: cyan;
+    padding: 10px;
+    width: 400px;
+    text-align: center;
+   }
+  </style>
+ </head>
+
+ <body>
+  <h1>The Hammer</h1>
+
+  <!-- divs to practice dom manipulation -->
+  <div id="container">
+   <div class="content">Lightning around the hammer!</div>
+  </div>
+
+  <!-- practice events -->
+  <button onclick="alert('Hello, World!')">Click Me</button>
+  <button id="btn">Click Me Too</button>
+  <button id="better">Click Me Three</button>
+  <button id="rocknroll">Rock n Roll!</button>
+
+  <!-- mdn exercises -->
+  <section>
+   <img src="dinosaur.png" alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.">
+   <p>Here we will add a link to the <a href="https://www.mozilla.org/" target="_blank" rel="noopener noreferrer">Mozilla homepage</a></p>
+  </section>
+
+  <script>
+   // selects the unique element whose id is container
+   const container = document.getElementById("container");
+
+   // creates a new <p> and adds red text to it
+   const p = document.createElement("p");
+   p.style.color = "red";
+   p.textContent = "Hey I\'m red!";
+
+   // add created p to the DOM as the child of container
+   container.appendChild(p);
+
+   // creates a new <h3> and adds blue text to it
+   const h3 = document.createElement("h3");
+   h3.style.color = "blue";
+   h3.textContent = `I'm a blue h3!`;
+
+   // creates a new <div> with numerous styles
+   const div = document.createElement("div");
+   div.setAttribute("style", "background: pink; border: solid black 2px;");
+
+   // creates a new <h1> and adds text to it
+   const h1 = document.createElement("h1");
+   h1.textContent = `I'm in a div`;
+
+   // creates a new <p> and adds text to it
+   const pAgain = document.createElement("p");
+   pAgain.textContent = `ME TOO!`;
+
+   // add created h1 and p to the DOM as the child of div
+   div.appendChild(h1);
+   div.appendChild(pAgain);
+
+   // add created div to the DOM as the child of container
+   container.appendChild(div);
+
+   // alert Hello World on button click
+   const btn = document.getElementById("btn");
+   btn.onclick = () => alert("Hello, World!");
+
+   // better way to implement event
+   const better = document.getElementById("better");
+   better.addEventListener("click", () => {
+    alert("Hello, World!");
+   });
+
+   // rock n roll! thats's all baby!
+   const rocknroll = document.getElementById("rocknroll");
+   rocknroll.addEventListener("click", (event) => {
+    const textText = "Rock n Roll!";
+    const emoText = "🪨 & 🙄";
+    event.target.textContent = (event.target.textContent == textText) ? emoText: textText;
+   });
+
+   // mdn exercises
+   const link = document.querySelector("a");
+   link.textContent = "Mozilla Developer Network";
+   link.href = "https://developer.mozilla.org";
+
+   const section = document.querySelector("section");
+   const para = document.createElement("p");
+   para.textContent = "We hope you enjoyed the ride.";
+   para.style.color = "white";
+   para.style.backgroundColor = "black";
+   para.style.padding = "10px";
+   para.style.width = "250px";
+   para.style.textAlign = "center";
+   section.appendChild(para);
+
+   const text = document.createTextNode(
+    " - the premier source for web development knowledge.",
+   );
+   const linkPara = section.querySelector("p");
+   linkPara.appendChild(text);
+   linkPara.setAttribute("class", "highlight");
+   section.appendChild(linkPara);
+   // section.removeChild(linkPara);
+   // linkPara.remove();
+
+   // link to shopping-list exercise
+   const shoppingLink = document.createElement("a");
+   shoppingLink.textContent = "Shop here!";
+   shoppingLink.setAttribute("href", "./pages/shopping-list.html");
+   container.appendChild(shoppingLink);
+  </script>
+ </body>
+</html>

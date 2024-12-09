@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Shopping list</title>
+ <style>
+  li {
+   margin-bottom: 10px;
+  }
+
+  li button {
+   font-size: 12px;
+   margin-left: 20px;
+   color: #666;
+  }
+ </style>
+</head>
+<body>
+
+ <h1>My shopping list</h1>
+
+ <div>
+  <label for="item">Enter a new item:</label>
+  <input type="text" name="item" id="item">
+  <button>Add item</button>
+ </div>
+
+ <ul>
+ </ul>
+
+ <script>
+  // select input field to get input
+  item = document.getElementById("item");
+
+  // focus on input box
+  item.focus();
+
+  // select add item button to listen for any event (clicks)
+  addBtn = document.querySelector("button");
+
+  // select ul to append childs (lists)
+  ul = document.querySelector("ul");
+
+  // on add button click, get content of input
+  addBtn.addEventListener("click", addItem);
+
+  // add input text to the dom as li and child of ul
+  function addItem() {
+   // get input value
+   text = item.value;
+
+   // create new li, and two children for li: span and button
+   const li = document.createElement("li");
+   const span = document.createElement("span");
+   const delBtn = document.createElement("button");
+
+   // set span text content to input value and append span as child of li
+   span.textContent = text;
+   li.appendChild(span);
+
+   // on delete button click, delete the list item and focus on input box
+   delBtn.addEventListener("click", () => {
+    delBtn.parentNode.remove();
+    item.focus();
+   });
+
+   // set delete button text content to delete and append delete button as second child of li
+   delBtn.textContent = "Delete";
+   li.appendChild(delBtn);
+
+   // append li as child of ul
+   ul.appendChild(li);
+
+   // empty input box and focus on it
+   item.value = "";
+   item.focus();
+  }
+ </script>
+</body>
+</html>
