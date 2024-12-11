@@ -173,10 +173,38 @@
 - Learned about event bubbling and its role in event handling.
 
 ## Resources:
-- Worked through the DOM Manipulation and Events section on The Odin Project.
+- Worked through the "DOM Manipulation and Events" section on The Odin Project.
 
 ## Next steps:
 - Will learn about Git branches.
 - Revisit the Rock, Paper, Scissors project.
+
+---
+
+# Daily Log - 2024/12/10
+
+## What I worked on:
+- Learned about git branching and merging.
+- Implemented git branching and merging to add a feature in the Rock, Paper, Scissors project.
+- Added UI for the Rock, Paper, Scissors project.
+
+## Resources:
+- Worked through the "Revisiting Rock, Paper, Scissors" section on The Odin Project.
+
+## Next steps:
+- Plan to start the Etch-a-Sketch project.
+
+---
+
+# Daily Log - 2024/12/11
+
+## What I worked on:
+- Completed the HTML and the CSS for the Etch-a-Sketch project.
+
+## Resources:
+- Found a helpful link for implementing vertical range slider: [Stack Overflow](https://stackoverflow.com/questions/15935837/how-to-display-a-range-input-slider-vertically#:~:text=input%5Btype%3Drange%5D%20%7B%0A%20%20%20%20writing%2Dmode%3A%20vertical%2Dlr%3B%0A%20%20%20%20direction%3A%20rtl%3B%0A%20%20%20%20vertical%2Dalign%3A%20middle%3B%0A%7D).
+
+## Next steps:
+- Complete the Etch-a-Sketch project, specifically focusing on JavaScript functionality and completing the user interaction.
 
 ---
