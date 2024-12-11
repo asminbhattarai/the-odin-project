@@ -1,27 +1,35 @@
 # Rock, Paper, Scissors Game
 
 ## About
-This is a simple implementation of the Rock, Paper, Scissors game using JavaScript. The game allows the player to play against the computer. The game runs in the browser’s console, where the outputs are shown. Prompts are displayed where the player can input their choice. The computer randomly selects its own move.
+This is an interactive Rock, Paper, Scissors game built with HTML, CSS, and JavaScript. The player competes against the computer, and the game is played through a graphical user interface (UI) in the browser. The user selects one of three weapons (Rock, Paper, or Scissors) and the computer randomly picks its move. The game updates the score after each round and continues until one player reaches 5 points.
 
 ## Goal
-The main goal of this project is to implement a basic interactive game where the user chooses one of three options (Rock, Paper, or Scissors) and plays against the computer. The game tracks the scores for both the human player and the computer over a series of rounds.
+The goal of this project is to create a fun, interactive game where the user plays against the computer. Players can choose between Rock, Paper, or Scissors, and the winner of each round is determined based on the game rules. The game keeps track of the scores, and after one player reaches 5 points, the winner is announced. Users can restart the game anytime.
 
 ## Features
-- User inputs their choice through the prompt.
-- The computer randomly selects its choice using JavaScript.
-- The game displays the outcome of each round and updates the score accordingly.
-- After a predefined number of rounds, the game announces the overall winner.
-- The game can be restarted based on the user’s choice.
+- **Interactive UI**: The game includes a simple, easy-to-use webpage interface where users can click on their choice (Rock, Paper, or Scissors) represented by images (SVGs).
+- **Instructions on First Run**: If it's the user's first time playing, an instruction pop-up will guide them on how to play.
+- **Computer Selection**: The computer makes a random move each round.
+- **Round Results**: The game displays the results of each round (win, lose, or tie), along with the updated scores for both the player and the computer.
+- **Winner Announcement**: Once a player (human or computer) reaches 5 points, the game announces the winner.
+- **Restart Option**: After the winner is displayed, the user can click "Play Again" to start a new game.
+- **Responsive Design**: The game is designed to be as responsive as possible for different screen sizes, ensuring a smooth experience across various devices.
 
 ## Technologies Used
-- HTML
-- JavaScript
+- **HTML**: For the structure and layout of the game interface.
+- **CSS**: For styling the game, including the SVGs and buttons.
+- **JavaScript**: For the logic, random computer selection, score tracking, and game flow.
 
 ## How to Play
-1. Open the developer console in your browser (press `CTRL + SHIFT + J` on Windows or `CMD + OPTION + J` on macOS).
-2. When you run the game, the prompt will ask you for your move: either "rock", "paper", or "scissors".
-3. The computer will randomly choose its move, and the result of each round will be shown in the console.
-4. After 5 rounds, the game will display who won and ask if you want to play again.
+1. Open the game in a web browser.
+2. A simple interface will appear with three clickable buttons or images representing Rock, Paper, and Scissors.
+3. Click one of the options to make your move.
+4. The computer will randomly choose its weapon, and both choices will be displayed as SVG images.
+5. The result of each round (win, loss, or tie) is displayed, along with the updated scores.
+6. The game continues until one player scores 5 points.
+7. Once a winner is determined, the winner is displayed. You can then press the "Play Again" button to start a new game.
 
 ## Resources
-- [JS MAC Detection](https://stackoverflow.com/questions/10527983/best-way-to-detect-mac-os-x-or-windows-computers-with-javascript-or-jquery#:~:text=var%20isMac%20%3D%20navigator.platform.toUpperCase().indexOf(%27MAC%27)%3E%3D0%3B)
+- [JavaScript Event Delegation](https://javascript.info/event-delegation) - Used to handle event delegation efficiently.
+- [Iconfinder](https://www.iconfinder.com/) - Used for sourcing SVG images for the Rock, Paper, and Scissors icons.
+

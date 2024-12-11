@@ -2,20 +2,109 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="css/style.css">
  </head>
 
  <body>
   
-  <!-- Title -->
-  <h1>Rock, Paper and Scissors Console Game</h1>
-  <!-- Title end -->
+  <!-- intro -->
+  <header class="show-flex">
+   <h2>Rock, Paper, Scissors</h2>
+   <button value="playGame">PLAY</button>
+  </header>
+  <!-- intro end -->
 
-  <!-- Script  -->
-  <script src="./js/script.js">
+  <!-- how to play -->
+  <div id="overlay" class="hide">
+   <div class="pop-up">
+    <h2>How to play?</h2>
+    <div class="stylish">
+     <p>Just click the weapon you want to select!</p>
+     <p>Whoever scores five first, wins!</p>
+    </div>
+    <button value="closeInstruction">CONTINUE</button>
+   </div>
+  </div>
+  <!-- how to play end -->
+
+  <!-- select weapon -->
+  <!-- container for items (weapon image + weapon button) -->
+  <div id="selection" class="hide">
+   <h2>Choose your weapon!</h2>
+   <div class="container">
+    <div class="item">
+     <img src="./images/rock.svg" alt="rock">
+     <button value="rock">Rock</button>
+    </div>
+    <div class="item">
+     <img src="./images/paper.svg" alt="paper">
+     <button value="paper">Paper</button>
+    </div>
+    <div class="item">
+     <img src="./images/scissors.svg" alt="scissors">
+     <button value="scissors">Scissors</button>
+    </div>
+   </div>
+  </div>
+  <!-- select weapon end -->
+
+  <!-- display battle -->
+  <div id="battle" class="hide">
+   <h2>VERSUS</h2>
+   <div class="versus">
+    <div class="player items">
+     <p>YOU CHOSE:</p>
+     <img alt="player choice">
+    </div>
+    <div class="computer items">
+     <p>COMPUTER CHOSE:</p>
+     <img alt="computer choice">
+    </div>
+   </div>
+   <button value="closeBattle">CONTINUE</button>
+  </div>
+  <!-- display choices end -->
+
+  <!-- battle result -->
+  <div id="result" class="hide">
+   <h2>RESULT</h2>
+   <div class="versus">
+    <div class="player items">
+     <p>YOU CHOSE:</p>
+     <img alt="win or loss">
+    </div>
+    <div class="computer items">
+     <p>COMPUTER CHOSE</p>
+     <img alt="win or loss">
+    </div>
+   </div>
+   <p>WINNER: <span></span></p>
+   <button value="closeResult">CONTINUE</button>
+  </div>
+  <!-- battle result end -->
+
+  <!-- score holder -->
+  <div id="score" class="hide">
+   <p>You: <span></span></p>
+   <p>Computer: <span></span></p>
+  </div>
+  <!-- score holder end -->
+
+  <!-- finale -->
+  <div id="finale" class="hide">
+   <h2>THE WINNER IS</h2>
+   <img alt="winner">
+   <p></p>
+   <button value="playAgain">Play Again</button>
+  </div>
+  <!-- final result end -->
+
+  <!-- script -->
+  <script async src="./js/script.js">
   </script>
-  <!-- Script end -->
+  <!-- script end -->
 
  </body>
 </html>

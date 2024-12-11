@@ -1,0 +1,377 @@
+/* universal styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hide {
+  display: none;
+}
+
+.show-flex {
+  display: flex;
+}
+
+/* body styles */
+body {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  color: #fff;
+  background: #255c34;
+  border: solid 2px #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* intro styles */
+header {
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+header > h2 {
+  width: fit-content;
+  padding: 0.5em 0.3em;
+  text-align: center;
+  background: #29693a;
+  border: solid 2px #fff;
+  box-shadow: 0 0 0.3em #4ef580;
+}
+
+header > button {
+  font-size: 0.9em;
+  margin: 1em 0;
+  padding: 0.6em 0.8em;
+  color: #fff;
+  background: #29693a;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+header > button:hover {
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 0 2px #4ef580;
+}
+
+
+/* overlay and pop-up box styles */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000050;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(5px);
+}
+
+.pop-up {
+  width: fit-content;
+  max-width: 75%;
+  padding: 0.5em;
+  color: #fff;
+  background: #29693a;
+  border: solid 2px #fff;
+  border-radius: 5px;
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.pop-up > h2 {
+  margin: 0.3em 0;
+  padding: 0.2em;
+}
+
+.stylish {
+  margin: 0.1em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.stylish > p {
+  width: fit-content;
+  margin: 0.2em;
+  flex: auto;
+}
+
+.pop-up > button {
+  font-size: 0.9em;
+  margin: 1em 0;
+  padding: 0.6em 0.8em;
+  color: #fff;
+  background: #29693a;
+  border: none;
+  box-shadow: 0 0 5px #255c34;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.pop-up > button:hover {
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 0 2px #4ef580;
+}
+
+
+/* weapons choice styles */
+#selection {
+  margin-top: 4em;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  align-self: baseline;
+}
+
+#selection > h2 {
+  margin: 0.5em 0;
+  padding: 0.2em 1em;
+  color: #fff;
+  background: #29693a;
+}
+
+.container {
+  width: fit-content;
+  max-width: 90%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+
+.item {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  flex: 0.5 1 30%;
+}
+
+.item > img {
+  width: 80%;
+  height: auto;
+}
+
+.item > button {
+  font-size: 1em;
+  padding: 0.2em 0.5em;
+  color: #fff;
+  background: #29693a;
+  border: none;
+  box-shadow: 0 0 5px #255c34;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  align-self: stretch;
+}
+
+.item > button:hover {
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 0 2px #4ef580;
+}
+
+/* battle styles */
+#battle {
+  margin-top: 3em;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  align-self: baseline;
+}
+
+#battle > h2 {
+  margin: 1em 0;
+  padding: 0.2em 1em;
+  color: #fff;
+  background: #29693a;
+}
+
+.versus {
+  width: fit-content;
+  max-width: 90%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+
+.items {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  flex: 0.5 1 20%;
+}
+
+.items > img {
+  width: 60%;
+  height: auto;
+}
+
+.items > p {
+  padding: 0.4em 0.1em;
+  color: #fff;
+  text-align: center;
+  background: #29693a40;
+}
+
+#battle > button {
+  font-size: 1em;
+  margin: 2em 0;
+  padding: 0.2em 0.5em;
+  color: #fff;
+  background: #29693a;
+  border: none;
+  box-shadow: 0 0 5px #255c34;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+#battle > button:hover {
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 0 2px #4ef580;
+}
+
+/* result styles */
+#result {
+  margin-top: 1.5em;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  align-self: baseline;
+}
+
+#result > h2 {
+  margin-bottom: 1em;
+  padding: 0.2em 1em;
+  color: #fff;
+  background: #29693a;
+}
+
+#result > p {
+  margin: 2em 0;
+  padding: 0.2em 1em;
+  background: #4ef58040;
+}
+
+#result > button {
+  font-size: 1em;
+  padding: 0.2em 0.5em;
+  color: #fff;
+  background: #29693a;
+  border: none;
+  box-shadow: 0 0 5px #255c34;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.#result > button:hover {
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 0 2px #4ef580;
+}
+
+/* score holder styles */
+#score {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  color: #ffffff60;
+  background: #29693a;
+  padding: 0.5em 1em;
+  z-index: 999;
+  align-items: flex-start;
+  justify-content: stretch;
+  flex-flow: column nowrap;
+  transform: translate(-50%, -50%);
+}
+
+#score > p {
+  width: 100%;
+  display: flex;
+  gap: 0.4em;
+}
+
+#score > p > span {
+  margin-left: auto;
+}
+
+/* finale styles */
+#finale {
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  align-self: space-between;
+  gap: 1em;
+}
+
+#finale > h2 {
+  width: fit-content;
+  padding: 0.5em 0.3em;
+  text-align: center;
+  background: #29693a;
+  border: solid 2px #fff;
+  box-shadow: 0 0 0.3em #4ef580;
+}
+
+@media (min-width: 768px) {
+  #finale > img {
+    height: 50vh;
+    width: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  #finale > img {
+    width: 50vw;
+    height: auto;
+  }
+}
+
+#finale > p {
+  font-size: 2em;
+  width: fit-content;
+  padding: 0.3em 0.5em;
+  color: #fff;
+  background: #29693a;
+  box-shadow: 0 0 3px #ffffff50;
+}
+
+@media (max-width: 767px) {
+  #finale > p {
+    font-size: 1.2em;
+  }
+}
+
+#finale > button {
+  font-size: 1em;
+  padding: 0.2em 0.5em;
+  color: #fff;
+  background: #29693a;
+  border: none;
+  box-shadow: 0 0 5px #255c34;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.#finale > button:hover {
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 0 2px #4ef580;
+}
