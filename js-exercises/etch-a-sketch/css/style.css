@@ -19,6 +19,19 @@ body {
 }
 
 
+/* hide and show */
+
+/* hide */
+.hide {
+  display: none;
+}
+
+/* show */
+.show-flex {
+  display: flex;
+}
+
+
 /* pad styles */
 
 /* self styles */
@@ -37,7 +50,7 @@ body {
   padding: 1vh 1vw;
   background: rgb(161, 53, 45);
   border: solid 3px rgb(115, 45, 40);
-  flex: 1 0 10%;
+  flex: 0 0 10%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,12 +68,12 @@ body {
 }
 
 /* color picker styles */
-#mono {
+#color-picker {
   background: transparent;
   border: solid 1px rgb(4, 51, 128);
 }
 
-#mono::before {
+#color-picker::before {
   content: '___';
   color: rgb(4, 51, 128);
   border-radius: 50%;
@@ -97,18 +110,48 @@ body {
   padding: 0.3em;
   background: rgb(161, 53, 45);
   border: solid 3px rgb(115, 45, 40);
-  flex: 1 0 80%;
+  flex: 0 0 80%;
+  position: relative;
 }
 
-/* screen styles */
-.screen {
+/* sketch styles */
+.sketch {
   width: 100%;
   height: 100%;
   padding: 0.1em;
   background: rgb(184, 184, 184);
   border: solid 1px rgb(115, 45, 40);
   border-radius: 1%;
+  position: relative;
   display: flex;
+}
+
+/* info styles */
+.info {
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column wrap;
+  gap: 1em;
+  z-index: 999;
+  backdrop-filter: blur(5px);
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+}
+
+.item > img {
+  max-width: 1em;
+  max-height: 1em;
+  border-radius: 50%;
 }
 
 /* responsive pad styles*/
