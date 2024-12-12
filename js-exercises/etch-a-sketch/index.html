@@ -4,14 +4,14 @@
 <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width">
- <title>Etch-A-Sketch</title>
+ <title>Etch-a-Sketch</title>
  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
  <div class="pad">
   <div class="handle first">
-   <img class="btn" src="./images/mono.svg" alt="mono">
+   <input id="mono" class="btn" type="color">
    <img class="btn" src="./images/rainbow.svg" alt="rainbow">
    <img class="btn" src="./images/draw.svg"  alt="draw">
    <img class="btn" src="./images/eraser.svg"  alt="eraser">
@@ -25,7 +25,7 @@
   </div>
 
   <div class="handle second">
-   <input type="range" min="1" max="100" value="16" id="slider">
+   <input id="slider" type="range" min="1" max="100" value="16" step="1">
   </div>
  </div>
 
