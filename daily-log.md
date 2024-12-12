@@ -208,3 +208,17 @@
 - Complete the Etch-a-Sketch project, specifically focusing on JavaScript functionality and completing the user interaction.
 
 ---
+
+# Daily Log - 2024/12/12
+
+## What I worked on:
+- Added functionality to the help button in the project.
+- Implemented the logic to trigger a pop-up.
+
+## Resources:
+- No additional resources were needed for this task today.
+
+## Next steps:
+- Continue with the JavaScript functionality for the Etch-a-Sketch project, focusing on user interaction.
+
+---
