@@ -212,8 +212,9 @@
 # Daily Log - 2024/12/12
 
 ## What I worked on:
-- Added functionality to the help button in the project.
-- Implemented the logic to trigger a pop-up.
+- Replaced the (mono) button with a circular color input, allowing users to pick colors from a palette.
+- Added `step=1` to the range input, enabling easier 1-unit value increments.
+- Added functionality (triggering a pop up) to the help button in the project.
 
 ## Resources:
 - No additional resources were needed for this task today.
