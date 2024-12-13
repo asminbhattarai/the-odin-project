@@ -223,3 +223,16 @@
 - Continue with the JavaScript functionality for the Etch-a-Sketch project, focusing on user interaction.
 
 ---
+
+# Daily Log - 2024/12/13
+
+## What I worked on:
+- Completed the Etch-a-Sketch project.
+
+## Resources:
+- I googled and reviewd lots of resources to complete the project.
+
+## Next steps:
+- Learn about JavaScript objects.
+
+---
