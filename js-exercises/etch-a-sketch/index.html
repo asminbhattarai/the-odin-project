@@ -11,9 +11,9 @@
 <body>
  <div class="pad">
   <div class="handle first">
-   <input id="color-picker" class="btn" type="color">
+   <input class="btn" id="color-picker" type="color">
    <img class="btn" src="./images/rainbow.svg" alt="rainbow">
-   <img class="btn" src="./images/draw.svg"  alt="draw">
+   <img class="btn" src="./images/draw.svg"  alt="paint">
    <img class="btn" src="./images/eraser.svg"  alt="eraser">
    <img class="btn" src="./images/clear.svg" alt="clear">
    <img class="btn" src="./images/info.svg" alt="info">
@@ -27,7 +27,7 @@
    <div class="info hide">
     <p class="item">
      <img src="./images/info.svg" alt="info">
-     <span>You just pressed this icon!</span>
+     <span>Press this or pencil icon to close info!</span>
     </p>
     <p class="item">
      <img src="./images/color-picker.svg" alt="color-picker">
@@ -50,15 +50,17 @@
      <span>Press this to clear the screen. No warnings included!</span>
     </p>
     <p class="item">
-     <img src="./images/draw.svg" alt="slider">
-     <span>A slider stands with this icon! Slide it to change pencil or eraser size.</span>
+     <img src="./images/slider.svg" alt="slider">
+     <span>A slider! Right or Up to increase tool size!</span>
     </p>
    </div>
 
   </div>
 
   <div class="handle second">
-   <input id="slider" type="range" min="1" max="100" value="16" step="1">
+   <!-- as tool size increases, total divs decrease -->
+   <!-- tool: 1,2,...,16,...,100 | totalDivs: 100,99,...,85,...,1 -->
+   <input id="slider" type="range" min="1" max="100" value="85" step="1">
   </div>
  </div>
 

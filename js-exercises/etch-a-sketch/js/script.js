@@ -1,73 +1,268 @@
 // VARIABLE INITIATIONS
 
 // constant global variables
-const DEFAULT_MODE = "draw";
-const DEFAULT_SCREEN = "draw";
-const DEFAULT_SIZE = 16;
-const DEFAULT_STYLE = "mono";
-const DEFAULT_COLORPICKER = "rgb(255, 255, 255)";
+const DEFAULT_SCREEN = "sketch";
+const DEFAULT_TOOL = "paint";
+const MAX_TOOL_SIZE = 100;
+const DEFAULT_TOOL_SIZE = 85;
+const DEFAULT_PAINT_STYLE = "mono";
+const DEFAULT_MONO_COLOR = "rgb(0, 0, 0)";
 
 // global variables for event listening
 const PAD = document.querySelector(".pad");
 const HANDLE_FIRST = PAD.querySelector(".handle.first");
 const COLOR_PICKER = HANDLE_FIRST.querySelector("#color-picker");
-const SCREEN = PAD.querySelector(".sketch");
+const SKETCH = PAD.querySelector(".sketch");
 const INFO = PAD.querySelector(".info");
 const SLIDER = PAD.querySelector("#slider");
 
 // global variables to keep track of current mode
-let current_mode = DEFAULT_MODE;
-let current_screen = DEFAULT_SCREEN;
-let current_size = DEFAULT_SIZE;
-let current_style = DEFAULT_STYLE;
-let current_colorPicker = DEFAULT_COLORPICKER;
+let currentScreen = DEFAULT_SCREEN;
+let currentTool = DEFAULT_TOOL;
+let currentToolSize = DEFAULT_TOOL_SIZE;
+let currentPaintStyle = DEFAULT_PAINT_STYLE;
+let currentMonoColor = DEFAULT_MONO_COLOR;
 
-// set initial values
+// global variables for action depending on device input
+let hover, sliderEnd;
+if ('onmousedown' in window || 'onmousemove' in window) {
+  hover = 'mouseover';
+  sliderEnd = 'mouseup';
+} else {
+  hover = 'touchstart';
+  sliderEnd = 'touchend';
+}
+
 
 // LOGIC FUNCTIONS
 
-// function to convert hex color to rgb color code
-function hexToRgb(hex) {
-  hex = hex.replace(/^#/, '');
+// function to generate and return random rgba color
+// a is in-between 0 and 1 and always multiple of 0.1
+function getRandomRGBA () {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  const a = Math.floor(Math.random() * 10) / 10;
 
-  if (hex.length === 3) {
-    hex = hex.split('').map(function (hexChar) {
-      return hexChar + hexChar;
-    }).join('');
+  return `rgba(${r}, ${g}, ${b}, ${a})`;
+}
+
+// function to process THE div
+function processDiv (div) {
+  switch (currentPaintStyle) {
+
+    case DEFAULT_PAINT_STYLE:
+      if (currentTool == DEFAULT_TOOL) {
+        toolDiv(div, currentMonoColor, currentMonoColor)
+      } else {
+        toolDiv(div, 'rgb(255, 255, 255)', 'rgba(184, 184,184, 0.5)');
+      }
+      break;
+
+    case 'rainbow':
+      currentTool = DEFAULT_TOOL;
+      currentPaintStyle = 'rainbow';
+
+      let newRGBA, alpha = +div.dataset.alpha;
+
+      if (alpha >= 1) {
+        return;
+      } else if (alpha) {
+        alpha = (alpha + 0.1).toFixed(1);
+	div.dataset.alpha = alpha;
+        const rgba = div.style.background;
+	const alphaStartIndex = rgba.lastIndexOf(',') + 1;
+	newRGBA = rgba.slice(0, alphaStartIndex) + ` ${alpha})`;
+      } else {
+        newRGBA = getRandomRGBA();
+	alpha = newRGBA.slice(newRGBA.lastIndexOf(',') + 1, newRGBA.length - 1);
+        div.dataset.alpha = alpha;
+      }
+
+      toolDiv(div, newRGBA, newRGBA);
+      break;
+
+    default:
+      break;
+  }
+}
+
+// function to process info button
+function processInfoBtn() {
+  switch(currentScreen) {
+
+    case DEFAULT_SCREEN:
+      currentScreen = 'info';
+      toggleInfo();
+      break;
+
+    case 'info':
+      currentScreen = DEFAULT_SCREEN;
+      toggleInfo();
+      break;
+
+    default:
+      break;
+  }
+}
+
+// function to process paint button
+function processPaintBtn () {
+  switch (currentScreen) {
+
+    case DEFAULT_SCREEN:
+      if (!checkSketchChildren()) startPaint();
+      currentScreen = DEFAULT_SCREEN;
+      break;
+
+    case 'info':
+      currentScreen = DEFAULT_SCREEN;
+      toggleInfo();
+      break;
+
+    default:
+      break;
+  }
+}
+
+// function to process clear button
+function processClearBtn () {
+  if (currentScreen !== DEFAULT_SCREEN) {
+    return;
   }
 
-  if (hex.length === 6) {
-    let r = parseInt(hex.slice(0, 2), 16);
-    let g = parseInt(hex.slice(2, 4), 16);
-    let b = parseInt(hex.slice(4, 6), 16);
-    return `rgb(${r}, ${g}, ${b})`;
+  deleteSketchChildren();
+  startPaint();
+}
+
+// function to check if sketch class has children or not
+function checkSketchChildren () {
+  const firstChild = SKETCH.querySelector('div');
+
+  if (firstChild) {
+    return true;
+  } else {
+    return false;
   }
 }
 
 
 // UI FUNCTIONS
 
+// function to paint THE div
+function toolDiv (div, color, borderColor) {
+  div.style.background = color;
+  div.style.border = `solid 1px ${borderColor}`;
+}
+
 // function to display info
 function toggleInfo () {
   INFO.classList.toggle('show-flex');
 }
 
-// LOGIC + UI FUNCTIONS
+// function to create divs in the sketch
+function startPaint () {
+  const border = "solid 1px rgba(184, 184, 184, 0.5)";
+  let divsInRow = MAX_TOOL_SIZE - currentToolSize + 1;
+
+  for (let i = 0; i < divsInRow; i++) {
+    const columnDiv = document.createElement('div');
+    columnDiv.style.display = "flex";
+    columnDiv.style.flex = "1 0 auto";
+
+    for (let j = 0; j < divsInRow; j++) {
+      const rowDiv = document.createElement('div');
+      rowDiv.style.border = border;
+      rowDiv.style.flex = "1 0 auto";
+
+      columnDiv.appendChild(rowDiv);
+    }
+
+    SKETCH.appendChild(columnDiv);
+  }
+}
+
+// function to delete all children of sketch class
+function deleteSketchChildren () {
+  checkSketchChildren() && SKETCH.replaceChildren();
+}
+
 
 // EVENT LISTENERS
 
 // listen for button clicks
 PAD.addEventListener('click', (event) => {
-  const button = event.target.alt;
+
+  let button;
+
+  if (event.target.alt)
+  {
+    button = event.target.alt;
+  }
+  else if (event.target.id == 'slider')
+  {
+    if (currentScreen == 'info') {
+      event.target.value = currentToolSize;
+    }
+    else
+    {
+      currentToolSize = event.target.value;
+      processClearBtn();
+    }
+    return;
+  }
+  else
+  {
+    return;
+  }
 
   switch (button) {
 
     case 'info':
-      toggleInfo();
+      processInfoBtn();
+      break;
+
+    case 'paint':
+      currentTool = DEFAULT_TOOL;
+      processPaintBtn();
+      break;
+
+    case 'clear':
+      processClearBtn();
+      break;
+
+    case 'eraser':
+      currentTool = button;
+      break;
+
+    case 'rainbow':
+      currentPaintStyle = button;
       break;
 
     default:
-      console.log("In development!");
       break;
   }
 });
+
+// listen for hover
+SKETCH.addEventListener(hover, (event) => {
+  const div = event.target;
+  const isSketchDiv = div == SKETCH;
+
+  if (isSketchDiv) return;
+
+  processDiv(div);
+});
+
+// click color picker is bugging out so separate listen event
+// listen for color picker input
+PAD.addEventListener('input', (event) => {
+  if (event.target.id == 'color-picker') {
+    currentPaintStyle = DEFAULT_PAINT_STYLE;
+    currentMonoColor = event.target.value;
+  }
+});
+
+
+// START
+HANDLE_FIRST.querySelector('img[alt="paint"]').click();
