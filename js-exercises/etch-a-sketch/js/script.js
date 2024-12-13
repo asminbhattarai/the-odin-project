@@ -70,7 +70,7 @@ function processDiv (div) {
       } else if (alpha) {
         alpha = (alpha + 0.1).toFixed(1);
 	div.dataset.alpha = alpha;
-        const rgba = div.style.background;
+        const rgba = getRandomRGBA();
 	const alphaStartIndex = rgba.lastIndexOf(',') + 1;
 	newRGBA = rgba.slice(0, alphaStartIndex) + ` ${alpha})`;
       } else {
