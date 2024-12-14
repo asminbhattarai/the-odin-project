@@ -147,7 +147,7 @@ function applyToolStyle(div, color, borderColor) {
 function handleToolbarClick(event) {
   const target = event.target;
 
-  if (SKETCH_AREA.contains(target) && target !== previousHoveredDiv) {
+  if (target !== SKETCH_AREA && SKETCH_AREA.contains(target) && target !== previousHoveredDiv) {
     previousHoveredDiv = target;
     processDiv(target);
     return;
