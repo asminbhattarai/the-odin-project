@@ -236,3 +236,18 @@
 - Learn about JavaScript objects.
 
 ---
+
+# Daily Log - 2024/12/15
+
+## What I worked on:
+- Refactored the layout and improved readability of Etch-a-Sketch project.
+- Added mobile swipe and touch functionality to Etch-a-Sketch project.
+
+## Resources:
+- I researched and tested swipe functionality using [an external library](https://www.npmjs.com/package/swiped-events/v/1.2.0?activeTab=readme) but couldn't integrate it into the Etch-a-Sketch project.
+
+## Next steps:
+- Continue refining the Etch-a-Sketch project and add any missing functionalities.
+- Explore JavaScript objects once the project is fully completed.
+
+---
