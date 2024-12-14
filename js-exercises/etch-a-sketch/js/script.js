@@ -24,13 +24,12 @@ let currentPaintStyle = DEFAULT_PAINT_STYLE;
 let currentMonoColor = DEFAULT_MONO_COLOR;
 
 // global variables for action depending on device input
-let hover, sliderEnd;
+let hover, click;
 if ('onmousedown' in window || 'onmousemove' in window) {
+  click = 'click';
   hover = 'mouseover';
-  sliderEnd = 'mouseup';
 } else {
-  hover = 'touchstart';
-  sliderEnd = 'touchend';
+  click = hover = 'swiped';
 }
 
 
@@ -165,20 +164,24 @@ function startPaint () {
   const border = "solid 1px rgba(184, 184, 184, 0.5)";
   let divsInRow = MAX_TOOL_SIZE - currentToolSize + 1;
 
+  const containerDiv = document.createElement('div');
+  containerDiv.classList.add('container');
+
   for (let i = 0; i < divsInRow; i++) {
     const columnDiv = document.createElement('div');
     columnDiv.style.display = "flex";
-    columnDiv.style.flex = "1 0 auto";
+    columnDiv.style.flex = "1 auto";
 
     for (let j = 0; j < divsInRow; j++) {
       const rowDiv = document.createElement('div');
       rowDiv.style.border = border;
-      rowDiv.style.flex = "1 0 auto";
+      rowDiv.style.flex = "1 auto";
 
       columnDiv.appendChild(rowDiv);
     }
 
-    SKETCH.appendChild(columnDiv);
+    containerDiv.appendChild(columnDiv);
+    SKETCH.appendChild(containerDiv);
   }
 }
 
@@ -191,9 +194,11 @@ function deleteSketchChildren () {
 // EVENT LISTENERS
 
 // listen for button clicks
-PAD.addEventListener('click', (event) => {
+PAD.addEventListener(click, (event) => {
 
   let button;
+
+  console.log(event.type);
 
   if (event.target.alt)
   {
@@ -266,3 +271,4 @@ PAD.addEventListener('input', (event) => {
 
 // START
 HANDLE_FIRST.querySelector('img[alt="paint"]').click();
+HANDLE_FIRST.querySelector('img[alt="info"]').click();

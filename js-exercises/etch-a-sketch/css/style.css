@@ -50,7 +50,7 @@ body {
   padding: 1vh 1vw;
   background: rgb(161, 53, 45);
   border: solid 3px rgb(115, 45, 40);
-  flex: 0 0 10%;
+  flex: 1 10%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,10 +102,12 @@ body {
 
 /* body styles */
 .body {
-  padding: 1em;
+  width: 100%;
+  height: 100%;
+  padding: 0.5em;
   background: rgb(161, 53, 45);
   border: solid 3px rgb(115, 45, 40);
-  flex: 0 0 auto;
+  flex: 1 80%;
   position: relative;
   display: flex;
   align-items: center;
@@ -114,9 +116,19 @@ body {
 
 /* sketch styles */
 .sketch {
-  aspect-ratio: 1;
-  background: rgb(255, 255, 255);
+  height: 100%;
+  width: 100%;
+  background: rgb(70, 77, 87);
   border: solid 1px rgb(115, 45, 40);
+  flex: 1 auto;
+  display: flex;
+}
+
+/* container styles */
+.container {
+  aspect-ratio: 1;
+  margin: auto;
+  background: rgb(255, 255, 255);
   display: flex;
   flex-flow: column wrap;
 }
@@ -124,12 +136,12 @@ body {
 /* info styles */
 .info {
   color: white;
-  width: 98%;
-  height: 98%;
+  width: calc(100% - 1em);
+  height: calc(100% - 1em);
   background: rgba(0, 0, 0, 0.4);
   position: absolute;
-  top: 1%;
-  left: 1%;
+  top: 0.5em;
+  left: 0.5em;
   align-items: center;
   justify-content: center;
   flex-flow: column wrap;
@@ -161,8 +173,8 @@ body {
     border-radius: 100% 0 0 100%;
   }
 
-  .body {
-    height: 100%;
+  .container {
+    height: 98%;
   }
 
   .handle.second {
@@ -175,11 +187,6 @@ body {
     writing-mode: vertical-lr;
     direction: rtl;
     vertical-align: middle;
-  }
-
-  .sketch {
-    width: auto;
-    height: 98%;
   }
 
   .info {
@@ -197,9 +204,8 @@ body {
     border-radius: 100% 100% 0 0;
   }
 
-  .body {
-    width: 100%;
-    flex-grow: 0.5;
+  .container {
+    width: 98%;
   }
 
   .handle.second {
@@ -209,11 +215,6 @@ body {
 
   #slider {
     width: 60%;
-  }
-
-  .sketch {
-    width: 98%;
-    height: auto;
   }
 
   .info {
