@@ -8,8 +8,6 @@
 /* === Body Styles === */
 body {
   font-family: sans-serif;
-  min-width: 100vw;
-  min-height: 100vh;
   background: rgb(99, 54, 54);
   border: solid 2px rgb(105, 72, 70);
   display: flex;
@@ -138,7 +136,7 @@ main {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 0.2em;
+  gap: 0.5em;
 }
 
 .tooltip > img {
@@ -194,6 +192,12 @@ main {
     width: 98%;
   }
 
+
+  .info {
+    font-size: 0.9em;
+    padding: 1em;
+  }
+
   .toolbar.bottom {
     border-top: none;
     border-radius: 0 0 100% 100%;
@@ -201,10 +205,5 @@ main {
 
   #slider {
     width: 60%;
-  }
-
-  .info {
-    font-size: 0.9em;
-    padding: 2px;
   }
 }

@@ -138,7 +138,7 @@ function applyToolStyle(div, color, borderColor) {
 // ================
 
 /**
- * Handles all pointer events for the toolbar and sketch area.
+ * Handles pointer up events for the toolbar and sketch area.
  * @param {Event} event - The triggered event
  */
 function handleToolbarClick(event) {
@@ -211,16 +211,33 @@ function handlePointerMove(event) {
   processDiv(hoveredDiv);
 }
 
-// Attach event listeners
+/**
+  * Handles color picker input to pick new color.
+  * @param {Event} event - The triggered event
+  */
+function handleColorPickerInput(event) {
+  currentPaintStyle = DEFAULT_PAINT_STYLE;
+  currentMonoColor = event.target.value;
+}
+
+/**
+  * Handles window load and resize to update body's minimum height.
+  */
+function handleWindowEvent() {
+  document.body.style.minHeight = `${window.innerHeight}px`;
+}
+
+// Attach event listeners for pointers
 MAIN.addEventListener("pointerup", handleToolbarClick);
 SKETCH_AREA.addEventListener("pointermove", handlePointerMove);
 SKETCH_AREA.addEventListener("touchmove", handlePointerMove, { passive: false });
 
-// Listen for color picker changes
-COLOR_PICKER.addEventListener("input", (event) => {
-  currentPaintStyle = DEFAULT_PAINT_STYLE;
-  currentMonoColor = event.target.value;
-});
+// Attach event listeners for page load and resize
+window.addEventListener('load', handleWindowEvent);
+window.addEventListener('resize', handleWindowEvent);
+
+// Attach event listeners for color picker changes
+COLOR_PICKER.addEventListener("input", handleColorPickerInput);
 
 // ==========================
 // INITIALIZATION
