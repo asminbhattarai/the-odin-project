@@ -9,62 +9,68 @@
 </head>
 
 <body>
- <div class="pad">
-  <div class="handle first">
-   <input class="btn" id="color-picker" type="color">
-   <img class="btn" src="./images/rainbow.svg" alt="rainbow">
-   <img class="btn" src="./images/draw.svg"  alt="paint">
-   <img class="btn" src="./images/eraser.svg"  alt="eraser">
-   <img class="btn" src="./images/clear.svg" alt="clear">
-   <img class="btn" src="./images/info.svg" alt="info">
+ <!-- Main (console-like body) -->
+ <main>
+
+  <!-- Top or Left Toolbar -->
+  <div class="top toolbar">
+   <!-- Color Picker -->
+   <input class="tool" id="color-picker" type="color" aria-label="Pick a color">
+   <!-- Tool Buttons -->
+   <img class="tool" src="./images/rainbow.svg" alt="rainbow">
+   <img class="tool" src="./images/draw.svg"  alt="paint">
+   <img class="tool" src="./images/eraser.svg"  alt="eraser">
+   <img class="tool" src="./images/clear.svg" alt="clear">
+   <img class="tool" src="./images/info.svg" alt="info">
   </div>
 
-  <div class="body">
+  <!-- Screen (Drawing body) -->
+  <div class="screen">
+   <!-- Sketch Area -->
+   <div class="sketch"></div>
 
-   <div class="sketch">
-   </div>
-
-   <div class="info hide">
-    <p class="item">
+   <!-- Info Panel -->
+   <div class="info">
+    <!-- Tooltips -->
+    <p class="tooltip">
      <img src="./images/info.svg" alt="info">
-     <span>Press this or pencil icon to close info!</span>
+     <span>Click to close info or switch to pencil.</span>
     </p>
-    <p class="item">
+    <p class="tooltip">
      <img src="./images/color-picker.svg" alt="color-picker">
-     <span>Press this to pick specific drawing color.</span>
+     <span>Pick a specific drawing color.</span>
     </p>
-    <p class="item">
+    <p class="tooltip">
      <img src="./images/rainbow.svg" alt="rainbow">
-     <span>Press this to pick randomized drawing color.</span>
+     <span>Use randomized drawing colors.</span>
     </p>
-    <p class="item">
+    <p class="tooltip">
      <img src="./images/draw.svg" alt="draw">
-     <span>Press this to pick drawing pencil.</span>
+     <span>Select the drawing pencil tool.</span>
     </p>
-    <p class="item">
+    <p class="tooltip">
      <img src="./images/eraser.svg" alt="eraser">
-     <span>Press this to pick eraser.</span>
+     <span>Switch to eraser mode.</span>
     </p>
-    <p class="item">
+    <p class="tooltip">
      <img src="./images/clear.svg" alt="clear">
-     <span>Press this to clear the screen. No warnings included!</span>
+     <span>Clear the screen immediately.</span>
     </p>
-    <p class="item">
+    <p class="tooltip">
      <img src="./images/slider.svg" alt="slider">
-     <span>A slider! Right or Up to increase tool size!</span>
+     <span>Adjust tool size with the slider.</span>
     </p>
    </div>
-
   </div>
 
-  <div class="handle second">
-   <!-- as tool size increases, total divs decrease -->
-   <!-- tool: 1,2,...,16,...,100 | totalDivs: 100,99,...,85,...,1 -->
-   <input id="slider" type="range" min="1" max="100" value="85" step="1">
+  <!-- Bottom or Right Toolbar -->
+  <div class="bottom toolbar">
+   <!-- Tool Size Slider -->
+   <input id="slider" type="range" min="1" max="100" value="85" step="1" aria-label="Adjust tool size">
   </div>
- </div>
+ </main>
 
- <script async src="./js/swiped-events.js"></script>
+ <!-- JavaScript -->
  <script async src="./js/script.js"></script>
 </body>
 

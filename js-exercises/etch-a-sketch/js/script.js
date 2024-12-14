@@ -1,84 +1,68 @@
-// VARIABLE INITIATIONS
+// ========================
+// VARIABLE INITIALIZATION
+// ========================
 
-// constant global variables
-const DEFAULT_SCREEN = "sketch";
+// Default configuration constants
+const DEFAULT_SCREEN = "info";
 const DEFAULT_TOOL = "paint";
 const MAX_TOOL_SIZE = 100;
 const DEFAULT_TOOL_SIZE = 85;
 const DEFAULT_PAINT_STYLE = "mono";
 const DEFAULT_MONO_COLOR = "rgb(0, 0, 0)";
 
-// global variables for event listening
-const PAD = document.querySelector(".pad");
-const HANDLE_FIRST = PAD.querySelector(".handle.first");
-const COLOR_PICKER = HANDLE_FIRST.querySelector("#color-picker");
-const SKETCH = PAD.querySelector(".sketch");
-const INFO = PAD.querySelector(".info");
-const SLIDER = PAD.querySelector("#slider");
+// DOM element references
+const MAIN = document.querySelector("main");
+const TOOLBAR_TOP = MAIN.querySelector(".toolbar.top");
+const COLOR_PICKER = TOOLBAR_TOP.querySelector("#color-picker");
+const SKETCH_AREA = MAIN.querySelector(".sketch");
+const INFO_PANEL = MAIN.querySelector(".info");
+const TOOL_SIZE_SLIDER = MAIN.querySelector("#slider");
 
-// global variables to keep track of current mode
+// State variables
 let currentScreen = DEFAULT_SCREEN;
 let currentTool = DEFAULT_TOOL;
 let currentToolSize = DEFAULT_TOOL_SIZE;
 let currentPaintStyle = DEFAULT_PAINT_STYLE;
 let currentMonoColor = DEFAULT_MONO_COLOR;
+let previousHoveredDiv = null;
 
-// global variables for action depending on device input
-let hover, click;
-if ('onmousedown' in window || 'onmousemove' in window) {
-  click = 'click';
-  hover = 'mouseover';
-} else {
-  click = hover = 'swiped';
-}
+// =====================
+// LOGIC + UI FUNCTIONS
+// =====================
 
-
-// LOGIC FUNCTIONS
-
-// function to generate and return random rgba color
-// a is in-between 0 and 1 and always multiple of 0.1
-function getRandomRGBA () {
+/**
+ * Generates a random RGBA color with 0 as the initial alpha.
+ * @returns {string} Random RGBA color
+ */
+function generateRandomRGBA() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
   const b = Math.floor(Math.random() * 256);
-  const a = Math.floor(Math.random() * 10) / 10;
-
-  return `rgba(${r}, ${g}, ${b}, ${a})`;
+  return `rgba(${r}, ${g}, ${b}, 0)`;
 }
 
-// function to process THE div
-function processDiv (div) {
+/**
+  * Processes (paints or erases) the given div based on the current tool and paint style.
+  * @param {HTMLElement} div - The target div to process
+  */
+function processDiv(div) {
   switch (currentPaintStyle) {
-
-    case DEFAULT_PAINT_STYLE:
-      if (currentTool == DEFAULT_TOOL) {
-        toolDiv(div, currentMonoColor, currentMonoColor)
-      } else {
-        toolDiv(div, 'rgb(255, 255, 255)', 'rgba(184, 184,184, 0.5)');
-      }
+    case DEFAULT_PAINT_STYLE: // Mono-color painting
+      const color = currentTool === DEFAULT_TOOL ? currentMonoColor : "rgb(255, 255, 255)";
+      const border = currentTool === DEFAULT_TOOL ? currentMonoColor: "rgba(184, 184, 184, 0.5)";
+      applyToolStyle(div, color, border);
       break;
 
-    case 'rainbow':
-      currentTool = DEFAULT_TOOL;
-      currentPaintStyle = 'rainbow';
+    case 'rainbow': // Rainbow painting
+      let alpha = parseFloat(div.dataset.alpha) || Math.random() * 0.9;
+      if (alpha >= 1) return;
 
-      let newRGBA, alpha = +div.dataset.alpha;
+      alpha = (alpha + 0.1).toFixed(1);
+      div.dataset.alpha = alpha;
 
-      if (alpha >= 1) {
-        return;
-      } else if (alpha) {
-        alpha = (alpha + 0.1).toFixed(1);
-	div.dataset.alpha = alpha;
-        const rgba = getRandomRGBA();
-	const alphaStartIndex = rgba.lastIndexOf(',') + 1;
-	newRGBA = rgba.slice(0, alphaStartIndex) + ` ${alpha})`;
-      } else {
-        newRGBA = getRandomRGBA();
-	alpha = newRGBA.slice(newRGBA.lastIndexOf(',') + 1, newRGBA.length - 1);
-        div.dataset.alpha = alpha;
-      }
-
-      toolDiv(div, newRGBA, newRGBA);
+      const randomColor = generateRandomRGBA();
+      const newColor = randomColor.replace('0)', `${alpha})`);
+      applyToolStyle(div, newColor, newColor);
       break;
 
     default:
@@ -86,189 +70,154 @@ function processDiv (div) {
   }
 }
 
-// function to process info button
-function processInfoBtn() {
-  switch(currentScreen) {
-
-    case DEFAULT_SCREEN:
-      currentScreen = 'info';
-      toggleInfo();
-      break;
-
-    case 'info':
-      currentScreen = DEFAULT_SCREEN;
-      toggleInfo();
-      break;
-
-    default:
-      break;
-  }
+/**
+  * Toggles the visibility of the info panel.
+  */
+function toggleInfoPanel() {
+  const infoPanelDisplay = window.getComputedStyle(INFO_PANEL).display;
+  INFO_PANEL.style.display = infoPanelDisplay === 'flex' ? 'none' : 'flex';
 }
 
-// function to process paint button
-function processPaintBtn () {
-  switch (currentScreen) {
-
-    case DEFAULT_SCREEN:
-      if (!checkSketchChildren()) startPaint();
-      currentScreen = DEFAULT_SCREEN;
-      break;
-
-    case 'info':
-      currentScreen = DEFAULT_SCREEN;
-      toggleInfo();
-      break;
-
-    default:
-      break;
-  }
-}
-
-// function to process clear button
-function processClearBtn () {
+/**
+  * Clears the sketch area and starts fresh.
+  */
+function clearSketchArea() {
   if (currentScreen !== DEFAULT_SCREEN) {
-    return;
-  }
-
-  deleteSketchChildren();
-  startPaint();
-}
-
-// function to check if sketch class has children or not
-function checkSketchChildren () {
-  const firstChild = SKETCH.querySelector('div');
-
-  if (firstChild) {
-    return true;
-  } else {
-    return false;
+    deleteSketchChildren();
+    initializeSketchArea();
   }
 }
 
-
-// UI FUNCTIONS
-
-// function to paint THE div
-function toolDiv (div, color, borderColor) {
-  div.style.background = color;
-  div.style.border = `solid 1px ${borderColor}`;
+/**
+  * Deletes all child elements of the sketch area.
+  */
+function deleteSketchChildren() {
+  SKETCH_AREA.replaceChildren();
 }
 
-// function to display info
-function toggleInfo () {
-  INFO.classList.toggle('show-flex');
-}
-
-// function to create divs in the sketch
-function startPaint () {
+/**
+  * Creates the grid of divs for the sketch area.
+  */
+function initializeSketchArea() {
+  const divsPerLine = MAX_TOOL_SIZE - currentToolSize + 1;
   const border = "solid 1px rgba(184, 184, 184, 0.5)";
-  let divsInRow = MAX_TOOL_SIZE - currentToolSize + 1;
-
   const containerDiv = document.createElement('div');
   containerDiv.classList.add('container');
 
-  for (let i = 0; i < divsInRow; i++) {
+  for (let i = 0; i < divsPerLine; i++) {
     const columnDiv = document.createElement('div');
     columnDiv.style.display = "flex";
     columnDiv.style.flex = "1 auto";
 
-    for (let j = 0; j < divsInRow; j++) {
-      const rowDiv = document.createElement('div');
-      rowDiv.style.border = border;
-      rowDiv.style.flex = "1 auto";
-
-      columnDiv.appendChild(rowDiv);
+    for (let j = 0; j < divsPerLine; j++) {
+      const cellDiv = document.createElement('div');
+      cellDiv.style.border = border;
+      cellDiv.style.flex = "1 auto";
+      columnDiv.appendChild(cellDiv);
     }
 
     containerDiv.appendChild(columnDiv);
-    SKETCH.appendChild(containerDiv);
   }
+
+  SKETCH_AREA.appendChild(containerDiv);
 }
 
-// function to delete all children of sketch class
-function deleteSketchChildren () {
-  checkSketchChildren() && SKETCH.replaceChildren();
+/**
+ * Applies the given tool style (color and border) to a div.
+ * @param {HTMLElement} div - The div to style
+ * @param {string} color - The background color
+ * @param {string} borderColor - The border color
+ */
+function applyToolStyle(div, color, borderColor) {
+  div.style.background = color;
+  div.style.border = `solid 1px ${borderColor}`;
 }
 
-
+// ================
 // EVENT LISTENERS
+// ================
 
-// listen for button clicks
-PAD.addEventListener(click, (event) => {
+/**
+ * Handles all pointer events for the toolbar and sketch area.
+ * @param {Event} event - The triggered event
+ */
+function handleToolbarClick(event) {
+  const target = event.target;
 
-  let button;
-
-  console.log(event.type);
-
-  if (event.target.alt)
-  {
-    button = event.target.alt;
-  }
-  else if (event.target.id == 'slider')
-  {
-    if (currentScreen == 'info') {
-      event.target.value = currentToolSize;
-    }
-    else
-    {
-      currentToolSize = event.target.value;
-      processClearBtn();
+  if (target.id === "slider") {
+    // Update tool size via slider
+    if (currentScreen === "info") {
+      target.value = currentToolSize; // Revert changes if in info screen
+    } else {
+      currentToolSize = parseInt(target.value, 10);
+      clearSketchArea();
     }
     return;
   }
-  else
-  {
-    return;
-  }
 
-  switch (button) {
-
-    case 'info':
-      processInfoBtn();
+  const toolType = target.alt;
+  switch (toolType) {
+    case "info":
+      currentScreen = currentScreen === DEFAULT_SCREEN ? "sketch" : DEFAULT_SCREEN;
+      toggleInfoPanel();
       break;
 
-    case 'paint':
+    case "paint":
       currentTool = DEFAULT_TOOL;
-      processPaintBtn();
+      if (!SKETCH_AREA.children.length) initializeSketchArea();
+      if (currentScreen === DEFAULT_SCREEN) {
+        currentScreen = "sketch";
+	toggleInfoPanel();
+      }
       break;
 
-    case 'clear':
-      processClearBtn();
+    case "clear":
+      clearSketchArea();
       break;
 
-    case 'eraser':
-      currentTool = button;
+    case "eraser":
+      currentTool = "eraser";
       break;
 
-    case 'rainbow':
-      currentPaintStyle = button;
+    case "rainbow":
+      currentPaintStyle = "rainbow";
       break;
 
     default:
       break;
   }
+}
+
+/**
+ * Handles pointer movement to paint the divs within the sketch area.
+ * @param {Event} event - The triggered event
+ */
+function handlePointerMove(event) {
+  if (event.pointerType === "touch") event.preventDefault();
+
+  const x = event.clientX || event.touches[0].clientX;
+  const y = event.clientY || event.touches[0].clientY;
+  const hoveredDiv = document.elementFromPoint(x, y);
+
+  const isValidDiv = hoveredDiv !== SKETCH_AREA && hoveredDiv !== previousHoveredDiv && SKETCH_AREA.contains(hoveredDiv);
+  if (!isValidDiv) return;
+
+  previousHoveredDiv = hoveredDiv;
+  processDiv(hoveredDiv);
+}
+
+// Attach event listeners
+MAIN.addEventListener("pointerup", handleToolbarClick);
+SKETCH_AREA.addEventListener("pointermove", handlePointerMove);
+SKETCH_AREA.addEventListener("touchmove", handlePointerMove, { passive: false });
+
+// Listen for color picker changes
+COLOR_PICKER.addEventListener("input", (event) => {
+  currentPaintStyle = DEFAULT_PAINT_STYLE;
+  currentMonoColor = event.target.value;
 });
 
-// listen for hover
-SKETCH.addEventListener(hover, (event) => {
-  const div = event.target;
-  const isSketchDiv = div == SKETCH;
-
-  if (isSketchDiv) return;
-
-  processDiv(div);
-});
-
-// click color picker is bugging out so separate listen event
-// listen for color picker input
-PAD.addEventListener('input', (event) => {
-  if (event.target.id == 'color-picker') {
-    currentPaintStyle = DEFAULT_PAINT_STYLE;
-    currentMonoColor = event.target.value;
-  }
-});
-
-
-// START
-HANDLE_FIRST.querySelector('img[alt="paint"]').click();
-HANDLE_FIRST.querySelector('img[alt="info"]').click();
+// ==========================
+// INITIALIZATION
+// ==========================
+initializeSketchArea();

@@ -1,12 +1,11 @@
-/* universal styles */
+/* === Universal Styles === */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
-/* body styles */
+/* === Body Styles === */
 body {
   font-family: sans-serif;
   min-width: 100vw;
@@ -18,24 +17,8 @@ body {
   justify-content: center;
 }
 
-
-/* hide and show */
-
-/* hide */
-.hide {
-  display: none;
-}
-
-/* show */
-.show-flex {
-  display: flex;
-}
-
-
-/* pad styles */
-
-/* self styles */
-.pad {
+/* === Main Container Styles === */
+main {
   width: 90vw;
   height: 90vh;
   display: flex;
@@ -43,8 +26,8 @@ body {
   justify-content: center;
 }
 
-/* handle styles */
-.handle {
+/* === Toolbar Styles (Top/Bottom) === */
+.toolbar {
   width: 100%;
   height: 100%;
   padding: 1vh 1vw;
@@ -59,15 +42,15 @@ body {
   gap: 1em;
 }
 
-/* btn like image styles */
-.btn {
+/* === Tool Button Styles === */
+.tool {
   max-width: 1.5em;
   max-height: 1.5em;
   border-radius: 50%;
   cursor: pointer;
 }
 
-/* color picker styles */
+/* === Color Picker Styles === */
 #color-picker {
   max-width: 1.7em;
   max-height: 1.7em;
@@ -76,7 +59,7 @@ body {
   border: solid 1px;
 }
 
-/* slider styles */
+/* === Slider Styles === */
 #slider {
   appearance: none;
   background: rgb(196, 96, 88);
@@ -100,8 +83,8 @@ body {
   cursor: pointer;
 }
 
-/* body styles */
-.body {
+/* === Screen Styles === */
+.screen {
   width: 100%;
   height: 100%;
   padding: 0.5em;
@@ -114,17 +97,17 @@ body {
   justify-content: center;
 }
 
-/* sketch styles */
+/* === Sketch (Drawing Area) Styles === */
 .sketch {
-  height: 100%;
   width: 100%;
+  height: 100%;
   background: rgb(70, 77, 87);
   border: solid 1px rgb(115, 45, 40);
   flex: 1 auto;
   display: flex;
 }
 
-/* container styles */
+/* === Container Styles (for grid alignment) === */
 .container {
   aspect-ratio: 1;
   margin: auto;
@@ -133,7 +116,7 @@ body {
   flex-flow: column wrap;
 }
 
-/* info styles */
+/* === Info Panel Styles === */
 .info {
   color: white;
   width: calc(100% - 1em);
@@ -142,6 +125,7 @@ body {
   position: absolute;
   top: 0.5em;
   left: 0.5em;
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-flow: column wrap;
@@ -149,26 +133,27 @@ body {
   backdrop-filter: blur(5px);
 }
 
-.item {
+/* === Tooltip Styles === */
+.tooltip {
   width: 100%;
   display: flex;
   align-items: center;
   gap: 0.2em;
 }
 
-.item > img {
+.tooltip > img {
   max-width: 1em;
   max-height: 1em;
   border-radius: 50%;
 }
 
-/* responsive pad styles*/
+/* === Responsive Styles for Larger Screens (min-width: 768px) === */
 @media (min-width: 768px){
-  .pad {
+  main {
     flex-flow: row nowrap;
   }
 
-  .handle.first {
+  .toolbar.top {
     border-right: none;
     border-radius: 100% 0 0 100%;
   }
@@ -177,7 +162,11 @@ body {
     height: 98%;
   }
 
-  .handle.second {
+  .info {
+    padding: 2em;
+  }
+
+  .toolbar.bottom {
     border-left: none;
     border-radius: 0 100% 100% 0;
   }
@@ -188,18 +177,15 @@ body {
     direction: rtl;
     vertical-align: middle;
   }
-
-  .info {
-    padding: 2em;
-  }
 }
 
+/* === Responsive Styles for Smaller Screens (max-width: 767px) === */
 @media (max-width: 767px){
-  .pad {
+  main {
     flex-flow: column nowrap;
   }
 
-  .handle.first {
+  .toolbar.top {
     border-bottom: none;
     border-radius: 100% 100% 0 0;
   }
@@ -208,7 +194,7 @@ body {
     width: 98%;
   }
 
-  .handle.second {
+  .toolbar.bottom {
     border-top: none;
     border-radius: 0 0 100% 100%;
   }
