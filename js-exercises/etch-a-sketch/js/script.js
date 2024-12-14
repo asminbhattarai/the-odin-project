@@ -155,6 +155,11 @@ function handleToolbarClick(event) {
     return;
   }
 
+  if (SKETCH_AREA.contains(target) && target !== previousHoveredDiv) {
+    previousHoveredDiv = target;
+    processDiv(target);
+  }
+
   const toolType = target.alt;
   switch (toolType) {
     case "info":
