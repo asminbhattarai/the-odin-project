@@ -26,6 +26,9 @@ let currentPaintStyle = DEFAULT_PAINT_STYLE;
 let currentMonoColor = DEFAULT_MONO_COLOR;
 let previousHoveredDiv = null;
 
+// Debounce variables
+let sliderDebounceTimer = null;
+
 // =====================
 // LOGIC + UI FUNCTIONS
 // =====================
@@ -144,20 +147,10 @@ function applyToolStyle(div, color, borderColor) {
 function handleToolbarClick(event) {
   const target = event.target;
 
-  if (target.id === "slider") {
-    // Update tool size via slider
-    if (currentScreen === "info") {
-      target.value = currentToolSize; // Revert changes if in info screen
-    } else {
-      currentToolSize = parseInt(target.value, 10);
-      clearSketchArea();
-    }
-    return;
-  }
-
   if (SKETCH_AREA.contains(target) && target !== previousHoveredDiv) {
     previousHoveredDiv = target;
     processDiv(target);
+    return;
   }
 
   const toolType = target.alt;
@@ -212,6 +205,13 @@ function handlePointerMove(event) {
 }
 
 /**
+  * Handles window load and resize to update body's minimum height.
+  */
+function handleWindowEvent() {
+  document.body.style.minHeight = `${window.innerHeight}px`;
+}
+
+/**
   * Handles color picker input to pick new color.
   * @param {Event} event - The triggered event
   */
@@ -221,10 +221,21 @@ function handleColorPickerInput(event) {
 }
 
 /**
-  * Handles window load and resize to update body's minimum height.
+  * Handles tool size slider input to pick new tool size.
+  * @param {Event} event - The triggered event
   */
-function handleWindowEvent() {
-  document.body.style.minHeight = `${window.innerHeight}px`;
+function handleToolSizeSliderInput(event) {
+  clearTimeout(sliderDebounceTimer);
+
+  sliderDebounceTimer = setTimeout(() => {
+
+    if (currentScreen === "info") {
+      event.target.value = currentToolSize;
+    } else {
+      currentToolSize = parseInt(event.target.value, 10);
+      clearSketchArea();
+    }
+  }, 300);
 }
 
 // Attach event listeners for pointers
@@ -233,11 +244,14 @@ SKETCH_AREA.addEventListener("pointermove", handlePointerMove);
 SKETCH_AREA.addEventListener("touchmove", handlePointerMove, { passive: false });
 
 // Attach event listeners for page load and resize
-window.addEventListener('load', handleWindowEvent);
-window.addEventListener('resize', handleWindowEvent);
+window.addEventListener("load", handleWindowEvent);
+window.addEventListener("resize", handleWindowEvent);
 
-// Attach event listeners for color picker changes
+// Attach event listener for color picker changes
 COLOR_PICKER.addEventListener("input", handleColorPickerInput);
+
+// Attach event listener for tool size slider changes
+TOOL_SIZE_SLIDER.addEventListener("input", handleToolSizeSliderInput);
 
 // ==========================
 // INITIALIZATION
