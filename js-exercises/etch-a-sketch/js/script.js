@@ -252,9 +252,8 @@ function handleColorPickerInput(event) {
   * @param {Event} event - The triggered event
   */
 function handleToolSizeSliderInput(event) {
-  if (slideDebounceTimer) {
-    clearTimeout(sliderDebounceTimer);
-  }
+  
+  clearTimeout(sliderDebounceTimer);
 
   sliderDebounceTimer = setTimeout(() => {
 
