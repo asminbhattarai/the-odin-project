@@ -237,7 +237,7 @@
 
 ---
 
-# Daily Log - 2024/12/15
+# Daily Log - 2024/12/14
 
 ## What I worked on:
 - Refactored the layout and improved readability of Etch-a-Sketch project.
@@ -249,5 +249,19 @@
 ## Next steps:
 - Continue refining the Etch-a-Sketch project and add any missing functionalities.
 - Explore JavaScript objects once the project is fully completed.
+
+---
+
+# Daily Log - 2024/12/15
+
+## What I worked on:
+- Added missing functionalities to Etch-a-Sketch.
+- Implemented final refactor to polish and finalize the code design.
+
+## Resources:
+- No additional resources were needed today.
+
+## Next steps:
+- Explore JavaScript objects.
 
 ---
