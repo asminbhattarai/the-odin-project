@@ -147,9 +147,9 @@ function applyToolStyle(div, color, borderColor) {
   div.style.border = `solid 1px ${borderColor}`;
 }
 
-// ================
-// EVENT LISTENERS
-// ================
+// ==============
+// HANDLE EVENTS
+// ==============
 
 /**
  * Handles pointer up events for the toolbar and sketch area.
@@ -187,6 +187,7 @@ function handleToolbarClick(event) {
       }
       draw.classList.add("btn-on");
       eraser.classList.remove("btn-on");
+      info.classList.remove("btn-on");
       break;
 
     case "clear":
@@ -251,7 +252,9 @@ function handleColorPickerInput(event) {
   * @param {Event} event - The triggered event
   */
 function handleToolSizeSliderInput(event) {
-  clearTimeout(sliderDebounceTimer);
+  if (slideDebounceTimer) {
+    clearTimeout(sliderDebounceTimer);
+  }
 
   sliderDebounceTimer = setTimeout(() => {
 
@@ -264,25 +267,36 @@ function handleToolSizeSliderInput(event) {
   }, 300);
 }
 
-// Attach event listeners for pointers
-MAIN.addEventListener("pointerup", handleToolbarClick);
-SKETCH_AREA.addEventListener("pointermove", handlePointerMove);
-SKETCH_AREA.addEventListener("touchmove", handlePointerMove, { passive: false });
-
-// Attach event listeners for page load and resize
-window.addEventListener("load", handleWindowEvent);
-window.addEventListener("resize", handleWindowEvent);
-
-// Attach event listener for color picker changes
-COLOR_PICKER.addEventListener("input", handleColorPickerInput);
-
-// Attach event listener for tool size slider changes
-TOOL_SIZE_SLIDER.addEventListener("input", handleToolSizeSliderInput);
-
 // ==========================
 // INITIALIZATION
 // ==========================
-initializeSketchArea();
-TOOLBAR_TOP.querySelector('img[alt="info"]').classList.add("btn-on");
-TOOLBAR_TOP.querySelector('img[alt="draw"]').classList.add("btn-on");
-COLOR_PICKER.classList.add("btn-on");
+
+function initialize() {
+  // Attach event listeners for pointers
+  MAIN.addEventListener("pointerup", handleToolbarClick);
+  SKETCH_AREA.addEventListener("pointermove", handlePointerMove);
+  SKETCH_AREA.addEventListener("touchmove", handlePointerMove, { passive: false });
+
+  // Attach event listeners for page load and resize
+  window.addEventListener("resize", handleWindowEvent);
+
+  // Attach event listener for color picker changes
+  COLOR_PICKER.addEventListener("input", handleColorPickerInput);
+
+  // Attach event listener for tool size slider changes
+  TOOL_SIZE_SLIDER.addEventListener("input", handleToolSizeSliderInput);
+
+  // Set body minimum height on window load
+  handleWindowEvent();
+
+  // Set initial toolbar states
+  TOOLBAR_TOP.querySelector('img[alt="info"]').classList.add("btn-on");
+  TOOLBAR_TOP.querySelector('img[alt="draw"]').classList.add("btn-on");
+  COLOR_PICKER.classList.add("btn-on");
+
+  // Initialize sketch area
+  initializeSketchArea();
+}
+
+// Call the initialization function on page load
+window.onload = initialize;
