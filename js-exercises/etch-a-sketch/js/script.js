@@ -4,7 +4,7 @@
 
 // Default configuration constants
 const DEFAULT_SCREEN = "info";
-const DEFAULT_TOOL = "paint";
+const DEFAULT_TOOL = "draw";
 const MAX_TOOL_SIZE = 100;
 const DEFAULT_TOOL_SIZE = 85;
 const DEFAULT_PAINT_STYLE = "mono";
@@ -24,6 +24,7 @@ let currentTool = DEFAULT_TOOL;
 let currentToolSize = DEFAULT_TOOL_SIZE;
 let currentPaintStyle = DEFAULT_PAINT_STYLE;
 let currentMonoColor = DEFAULT_MONO_COLOR;
+let currentGlowing = null;
 let previousHoveredDiv = null;
 
 // Debounce variables
@@ -86,8 +87,9 @@ function processDiv(div) {
   * Toggles the visibility of the info panel.
   */
 function toggleInfoPanel() {
-  const infoPanelDisplay = window.getComputedStyle(INFO_PANEL).display;
-  INFO_PANEL.style.display = infoPanelDisplay === 'flex' ? 'none' : 'flex';
+/*  const infoPanelDisplay = window.getComputedStyle(INFO_PANEL).display;
+  INFO_PANEL.style.display = infoPanelDisplay === 'flex' ? 'none' : 'flex'; */
+  INFO_PANEL.classList.toggle("hidden");
 }
 
 /**
@@ -163,19 +165,28 @@ function handleToolbarClick(event) {
   }
 
   const toolType = target.alt;
+  const rainbow = TOOLBAR_TOP.querySelector('img[alt="rainbow"]');
+  const draw  = TOOLBAR_TOP.querySelector('img[alt="draw"]');
+  const eraser = TOOLBAR_TOP.querySelector('img[alt="eraser"]');
+  const clear = TOOLBAR_TOP.querySelector('img[alt="clear"]');
+  const info = TOOLBAR_TOP.querySelector('img[alt="info"]');
+
   switch (toolType) {
-    case "info":
+    case DEFAULT_SCREEN:
       currentScreen = currentScreen === DEFAULT_SCREEN ? "sketch" : DEFAULT_SCREEN;
       toggleInfoPanel();
+      info.classList.toggle("btn-on");
       break;
 
-    case "paint":
+    case DEFAULT_TOOL:
       currentTool = DEFAULT_TOOL;
       if (!SKETCH_AREA.children.length) initializeSketchArea();
       if (currentScreen === DEFAULT_SCREEN) {
         currentScreen = "sketch";
 	toggleInfoPanel();
       }
+      draw.classList.add("btn-on");
+      eraser.classList.remove("btn-on");
       break;
 
     case "clear":
@@ -184,10 +195,14 @@ function handleToolbarClick(event) {
 
     case "eraser":
       currentTool = "eraser";
+      eraser.classList.add("btn-on");
+      draw.classList.remove("btn-on");
       break;
 
     case "rainbow":
       currentPaintStyle = "rainbow";
+      rainbow.classList.add("btn-on");
+      COLOR_PICKER.classList.remove("btn-on");
       break;
 
     default:
@@ -227,6 +242,8 @@ function handleWindowEvent() {
 function handleColorPickerInput(event) {
   currentPaintStyle = DEFAULT_PAINT_STYLE;
   currentMonoColor = event.target.value;
+  event.target.classList.add("btn-on");
+  TOOLBAR_TOP.querySelector('img[alt="rainbow"]').classList.remove("btn-on");
 }
 
 /**
@@ -266,3 +283,6 @@ TOOL_SIZE_SLIDER.addEventListener("input", handleToolSizeSliderInput);
 // INITIALIZATION
 // ==========================
 initializeSketchArea();
+TOOLBAR_TOP.querySelector('img[alt="info"]').classList.add("btn-on");
+TOOLBAR_TOP.querySelector('img[alt="draw"]').classList.add("btn-on");
+COLOR_PICKER.classList.add("btn-on");
