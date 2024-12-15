@@ -49,28 +49,37 @@ function generateRandomRGBA() {
   * @param {HTMLElement} div - The target div to process
   */
 function processDiv(div) {
+  let color = null;
+  let border = null;
+
   switch (currentPaintStyle) {
     case DEFAULT_PAINT_STYLE: // Mono-color painting
-      const color = currentTool === DEFAULT_TOOL ? currentMonoColor : "rgb(255, 255, 255)";
-      const border = currentTool === DEFAULT_TOOL ? currentMonoColor: "rgba(184, 184, 184, 0.5)";
-      applyToolStyle(div, color, border);
+      color = currentTool === DEFAULT_TOOL ? currentMonoColor : "rgb(255, 255, 255)";
+      border = currentTool === DEFAULT_TOOL ? currentMonoColor: "rgba(184, 184, 184, 0.5)";
       break;
 
     case 'rainbow': // Rainbow painting
-      let alpha = parseFloat(div.dataset.alpha) || Math.random() * 0.9;
-      if (alpha >= 1) return;
+      if (currentTool == DEFAULT_TOOL) {
+        let alpha = parseFloat(div.dataset.alpha) || Math.random() * 0.9;
+        if (alpha >= 1) return;
 
-      alpha = (alpha + 0.1).toFixed(1);
-      div.dataset.alpha = alpha;
+        alpha = (alpha + 0.1).toFixed(1);
+        div.dataset.alpha = alpha;
 
-      const randomColor = generateRandomRGBA();
-      const newColor = randomColor.replace('0)', `${alpha})`);
-      applyToolStyle(div, newColor, newColor);
+        const randomColor = generateRandomRGBA();
+        color = randomColor.replace('0)', `${alpha})`);
+        border = color;
+      } else {
+        color = "rgb(255, 255, 255)";
+	border = "rgba(182, 184, 184, 0.5)";
+      }
       break;
 
     default:
       break;
   }
+
+  applyToolStyle(div, color, border);
 }
 
 /**
