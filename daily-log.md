@@ -265,3 +265,16 @@
 - Explore JavaScript objects.
 
 ---
+
+# Daily Log - 2024/12/21
+
+## What I worked on:
+- Learned basics of object and array methods.
+
+## Resources:
+- No additional resources.
+
+## Next steps:
+- Work on a new project: Calculator, a simple calculator with basic arithmetic operations, clear function and so on.
+
+---
