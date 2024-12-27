@@ -278,3 +278,13 @@
 - Work on a new project: Calculator, a simple calculator with basic arithmetic operations, clear function and so on.
 
 ---
+
+# Daily Log - 2024/12/27
+
+## What I worked on:
+- Completed JS project Calculator.
+
+## Next step:
+- Learn Emmet.
+
+---
