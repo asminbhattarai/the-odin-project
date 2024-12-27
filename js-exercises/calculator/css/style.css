@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+.container,
+.screen,
+.buttons,
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 2em;
+  background: #81ccbf60;
+}
+
+.container {
+  min-height: 90%;
+  padding: 0.5em;
+  background: #373838;
+  border-radius: 10px;
+  box-shadow: 0 0 0.5em 0.5em #fff;
+  color: #000;
+}
+
+.screen {
+  width: 100%;
+  height: 25%;
+  padding: 0.2em;
+  background: #8a8a7d;
+  border: solid 2px #000;
+  flex: 0 0 auto;
+  text-align: right;
+  align-items: stretch;
+}
+
+.previous {
+  height: 30%;
+  margin-right: 3px;
+  padding: 2px;
+  flex: 0 auto;
+  font-size: 1.6em;
+}
+
+.operator {
+  height: 10%;
+  margin-right: 4px;
+  padding: 2% 2px;
+  flex: 0 auto;
+  font-size: 1em;
+}
+
+.current {
+  height: 60%;
+  padding: 5% 2px;
+  flex: 0 auto;
+  font-size: 2.4em;
+}
+
+.buttons {
+  width: 100%;
+  height: 65%;
+  padding: 0.2em;
+  background: #000;
+  flex: 0 auto;
+  align-items: stretch;
+}
+
+.row {
+  margin: 0em;
+  padding: 0.1em;
+  flex: 0 100%;
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  gap: 0.2em;
+}
+
+button {
+  border:none;
+  border-radius: 5px;
+  flex: 0 50%;
+  font-weight: 700;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  filter: grayscale(100%);
+}
+
+button[name='special'] {
+  background: #c975c5;
+}
+
+button[name='operator'] {
+  background: #ffeb3b;
+}
+
+button[value='='] {
+  background: #00ff00;
+}
+
+button[name='number'] {
+  background: #0ccfcf;
+}
+
+button[name='eraser'] {
+  background: #ff4c4c;
+}
+
+img {
+  min-width: 50%;
+  min-height: 50%;
+  margin: auto;
+}
+
+.footer {
+  height: 10%;
+  flex: 0 auto;
+  color: #fff;
+  font-size: large;
+}
+
+@media (min-width: 500px) {
+  .container {
+    width: 350px
+  }
+}
+
+@media (max-width: 499px) {
+  .container {
+    width: 280px;
+  }
+}
+
+@media (max-width: 279px), (max-height: 380px) {
+  .container {
+    filter: blur(10px);
+    overflow: hidden;
+  }
+
+  body::before {
+    font-size: 2em;
+    content: "Screen too small!";
+  }
+}

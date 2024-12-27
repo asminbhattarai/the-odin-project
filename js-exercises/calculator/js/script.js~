@@ -1,0 +1,144 @@
+// =================
+// Global Variables
+// =================
+
+const container = document.querySelector('.container');
+const operator = document.querySelector('.operator');
+const current = document.querySelector('.current');
+const previous = document.querySelector('.previous');
+
+// ===============
+// EVENT LISTENER
+// ===============
+
+container.addEventListener('click', (event) => {
+  processClick(event.target);
+});
+
+document.addEventListener('keydown', (event) => {
+  processKeyDown(event.key);
+});
+
+// ==================
+// LOGICAL FUNCTIONS
+// ==================
+
+/**
+  * Function to process click
+  * @param {Element} element - Clicked element to be processed
+  */
+function processClick(element) {
+  let name = element.name;
+  let value = element.value;
+
+  if (element.name === undefined) {
+    return;
+  }
+
+  switch (name)
+  {
+
+    case 'number':
+      processNumber(value);
+      break;
+
+    case 'operator':
+      processOperator(value);
+      break;
+
+    case 'eraser':
+      processEraser(value);
+      break;
+
+    case 'special':
+      processSpecial(value);
+      break;
+
+    default:
+      break;
+  }
+}
+
+/**
+  * Function to process key down
+  * @param {Key} key - key to be processed
+  */
+function processKeyDown(key)
+{
+  const operators = '+-*/=';
+  const specials = '.%';
+  const clears = 'Backspace'
+
+  if (+key >= 0 && +key <= 9) {
+    processNumber(key);
+  } else if (operators.includes(key)) {
+    processOperator(key);
+  } else if (key === clears) {
+    processEraser(key);
+  } else if (specials.includes(key)) {
+    processSpecial(key);
+  }
+}
+
+/**
+  * Function to adjust font size based on element width
+  * @param {Element} element - Element whose font size is to be changed
+  */
+function adjustFontSize(element) {
+  console.log(element.scrollWidth, container.offsetWidth);
+  if (element.scrollWidth > container.offsetWidth) {
+    const fontSize = parseInt(window.getComputedStyle(element).fontSize);
+    element.style.fontSize = `${fontSize * (container.offSetWidth / element.scrollWidth)}px`;
+  } else {
+    element.style.removeProperty('font-size');
+  }
+}
+
+/**
+  * Function to process numbers
+  * @param {Number} number - Number to process
+  */
+function processNumber(number) {
+    const length = current.textContent.length;
+
+    if (length >= 25) {
+      return;
+    }
+
+    if (current.textContent === '0') {
+      current.textContent = number;
+    } else {
+      current.textContent += number;
+    }
+
+    adjustFontSize(current);
+}
+
+/**
+  * Function to process operators
+  * @param {Operator} operator - Operator to process
+  */
+function processOperator(op) {
+  const calculate = {
+    '+': (a, b) => +a + +b,
+    '-': (a, b) => a - b,
+    '*': (a, b) => a * b,
+    '/': (a, b) => a / b,
+  };
+
+  const left = previous.textContent;
+  const right = current.textContent;
+  const oper = operator.textContent;
+
+  if (op === '=') {
+    previous.textContent = current.textContent;
+    current.textContent = calculate[oper](left, right);
+  } else {
+    operator.textContent = op;
+    previous.textContent = current.textContent;
+    current.textContent = '0';
+  }
+
+  adjustFontSize(previous);
+  adjustFontSize(current);
+}

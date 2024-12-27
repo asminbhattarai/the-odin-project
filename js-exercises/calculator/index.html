@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset='utf-8'>
+ <meta name='viewport' content='width=device-width'>
+ <title>Calculator</title>
+ <link rel='stylesheet' href='./css/style.css'>
+</head>
+
+<body>
+
+ <!-- Body -->
+ <div class='container'>
+
+  <!-- Screen -->
+   <div class='screen'>
+    <div class='previous'>0</div>
+    <div class='operator'></div>
+    <div class='current'>0</div>
+   </div>
+
+   <!-- Buttons -->
+   <div class='buttons'>
+
+    <!-- Row 1 Buttons -->
+    <div class='row one'>
+     <button name='eraser' value='all-clear'>AC</button>
+     <button name='special' value='percent'>%</button>
+     <button name='eraser'><img src='./img/backspace.svg' alt='backspace' name='eraser'></button>
+     <button name='operator' value='/'>&divide;</button>
+    </div>
+
+    <!-- Row 2 Buttons -->
+    <div class='row two'>
+     <button name='number' value='7'>7</button>
+     <button name='number' value='8'>8</button>
+     <button name='number' value='9'>9</button>
+     <button name='operator' value='*'>&times;</button>
+    </div>
+
+    <!-- Row 3 Buttons -->
+    <div class='row three'>
+     <button name='number' value='4'>4</button>
+     <button name='number' value='5'>5</button>
+     <button name='number' value='6'>6</button>
+     <button name='operator' value='-'>&minus;</button>
+    </div>
+
+    <!-- Row 4 Buttons -->
+    <div class='row four'>
+     <button name='number' value='1'>1</button>
+     <button name='number' value='2'>2</button>
+     <button name='number' value='3'>3</button>
+     <button name='operator' value='+'>+</button>
+    </div>
+
+    <!-- Row 5 Buttons -->
+    <div class='row five'>
+     <button name='special' value='sign-change'>+/&minus;</button>
+     <button name='number' value='0'>0</button>
+     <button name='special' value='dot'>.</button>
+     <button name='operator' value='='>=</button>
+    </div>
+
+   </div>
+
+   <div class='footer'>
+    <p>Yet Another Calulator</p>
+   </div>
+
+ </div>
+
+ <script async src='./js/script.js'></script>
+
+</body>
+
+</html>
