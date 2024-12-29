@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>emmet-vim</title>
+
+  <style>
+    .class {
+      /* pos */
+      position: relative;
+      /* bgc */
+      background-color: #fff;
+      /* w10 */
+      width: 10px;
+      /* h10em */
+      height: 10em;
+    }
+  </style>
+<head>
+
+<body>
+
+  <!-- h1{Practing Emmet in Vim} -->
+  <h1>Practicing Emmet in Vim</h1>
+
+  <!-- .auto-div -->
+  <div class="auto-div"></div>
+
+  <!-- #emmet-is-amzing -->
+  <div id="emmet-is-amazing"></div>
+
+  <!-- button[type="submit"] -->
+  <button type="submit"></button>
+
+  <!-- .parent>span.child -->
+  <div class="parent"><span class="child"></span></div>
+
+  <!-- header>nav>ul>li.class-${Item Number $}*3 -->
+  <header>
+    <nav>
+      <ul>
+        <li class="class-1">Item Number 1</li>
+        <li class="class-2">Item Number 2</li>
+        <li class="class-3">Item Number 3</li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- header>nav>ul>li.class-${Item Number $$}*3 -->
+  <header>
+    <nav>
+      <ul>
+        <li class="class-1">Item Number 01</li>
+        <li class="class-2">Item Number 02</li>
+        <li class="class-3">Item Number 03</li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- header+main+footer -->
+  <header></header>
+  <main></main>
+  <footer></footer>
+
+  <!-- header>nav+main+footer -->
+  <header>
+    <nav></nav>
+    <main></main>
+    <footer></footer>
+  </header>
+
+  <!-- header>nav^main+footer -->
+  <header>
+    <nav></nav>
+  </header>
+  <main></main>
+  <footer></footer>
+
+  <!-- (header>nav)+main+footer  -->
+  <header>
+    <nav></nav>
+  </header>
+  <main></main>
+  <footer></footer>
+
+  <!-- header>h2{heading two}+nav>ol>li*5>a{link $} -->
+  <header>
+    <h2>heading two</h2>
+    <nav>
+      <ol>
+        <li><a href="">link 1</a></li>
+        <li><a href="">link 2</a></li>
+        <li><a href="">link 3</a></li>
+        <li><a href="">link 4</a></li>
+        <li><a href="">link 5</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <!--form:post>(.group>label+input:text)+(.group>label+input:number) -->
+  <form action="" method="post">
+    <div class="group">
+      <label for=""></label>
+      <input id="" type="text" name="">
+    </div>
+    <div class="group">
+      <label for=""></label>
+      <input id="" type="number" name="">
+    </div>
+  </form>
+
+</body>
+
+</html>
