@@ -288,3 +288,13 @@
 - Learn Emmet.
 
 ---
+
+# Daily Log - 2024/12/29
+
+## What I worked on:
+- Emmet in Vim.
+
+## Next step:
+- Learn about SVG.
+
+---
