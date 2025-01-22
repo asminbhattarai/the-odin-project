@@ -298,3 +298,13 @@
 - Learn about SVG.
 
 ---
+
+# Daily Log- 2025/01/22
+
+## What I worked on:
+- SVGs, Tables and Default Styles
+
+## Next step:
+- CSS Units and Text Styles
+
+---
