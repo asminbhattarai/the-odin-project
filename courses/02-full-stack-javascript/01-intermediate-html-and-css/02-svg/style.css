@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+svg {
+  width: 60vw;
+  height: 20vh;
+}
+
+rect {
+  x: 10;
+  y: 10;
+  width: 10px;
+  height: 5px;
+  fill: blue;
+}
+
+path {
+  fill: red;
+}
+
+path:hover {
+  fill: crimson;
+  transition: all 0.3s ease;
+}
+
+circle {
+  cx: 50;
+  cy: 50;
+  r: 10px;
+  fill: lightpink;
+  stroke: red;
+}

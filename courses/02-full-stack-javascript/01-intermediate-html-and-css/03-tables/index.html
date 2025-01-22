@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Tables</title>
+
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+  <table>
+    <caption>
+      Just a Table
+    </caption>
+    <tr>
+      <th>First</th>
+      <th>Second</th>
+      <th>Third</th>
+      <th>Fourth</th>
+    </tr>
+    <tr>
+      <td>Hi, I'm your first cell.</td>
+      <td colspan="2">I'm your second cell. And somehow, the third cell as well.</td>
+      <td rowspan="2">I'm your fourth cell. I also am tall.</td>
+    </tr>
+    <tr>
+      <td>Second row, first cell.</td>
+      <td>Cell 2.</td>
+      <td>Cell 3.</td>
+    </tr>
+  </table>
+
+  <table>
+    <caption>
+      Dogs
+    </caption>
+    <tr>
+      <td>&nbsp;</td>
+      <th>Knocky</th>
+      <th>Flor</th>
+      <th>Ella</th>
+      <th>Juan</th>
+    </tr>
+    <tr>
+      <th>Breed</th>
+      <td>Jack Russell</td>
+      <td>Poodle</td>
+      <td>Streetdog</td>
+      <td>Cocker Spaniel</td>
+    </tr>
+    <tr>
+      <th>Age</th>
+      <td>16</td>
+      <td>9</td>
+      <td>10</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>Owner</th>
+      <td>Mother-in-law</td>
+      <td>Me</td>
+      <td>Me</td>
+      <td>Sister-in-law</td>
+    </tr>
+    <tr>
+      <th>Eating Habits</th>
+      <td>Eats everyone's leftovers</td>
+      <td>Nibbles at food</td>
+      <td>Hearty eater</td>
+      <td>Will eat till he explodes</td>
+    </tr>
+  </table>
+
+  <table>
+    <caption>
+      Animals
+    </caption>
+    <tr>
+      <th colspan="2">Animals</th>
+    </tr>
+    <tr>
+      <th colspan="2">Hippopotamus</th>
+    </tr>
+    <tr>
+      <th rowspan="2">Horse</th>
+      <td>Mare</td>
+    </tr>
+    <tr>
+      <td>Stallion</td>
+    </tr>
+    <tr>
+      <th colspan="2">Crocodile</th>
+    </tr>
+    <tr>
+      <th rowspan="2">Chicken</th>
+      <td>Hen</td>
+    </tr>
+    <tr>
+      <td>Rooster</td>
+    </tr>
+  </table>
+
+  <table>
+    <caption>
+      Schol Timetable
+    </caption>
+    <colgroup>
+      <col span="2">
+      <col style="background-color:#97DB9A;">
+      <col style="width:100px;">
+      <col style="background-color:#97DB9A;">
+      <col style="background-color:#DCC48E; border:4px solid #C1437A;">
+      <col span="2" style="width:100px;">
+    </colgroup>
+    <tr>
+      <td>&nbsp;</td>
+      <th>Mon</th>
+      <th>Tues</th>
+      <th>Wed</th>
+      <th>Thurs</th>
+      <th>Fri</th>
+      <th>Sat</th>
+      <th>Sun</th>
+    </tr>
+    <tr>
+      <th>1st period</th>
+      <td>English</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>German</td>
+      <td>Dutch</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th>2nd period</th>
+      <td>English</td>
+      <td>English</td>
+      <td>&nbsp;</td>
+      <td>German</td>
+      <td>Dutch</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th>3rd period</th>
+      <td>&nbsp;</td>
+      <td>German</td>
+      <td>&nbsp;</td>
+      <td>German</td>
+      <td>Dutch</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th>4th period</th>
+      <td>&nbsp;</td>
+      <td>English</td>
+      <td>&nbsp;</td>
+      <td>English</td>
+      <td>Dutch</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+     </tr>
+  </table>
+
+  <table>
+    <caption>
+     How I chose to spend my money
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">Purchase</th>
+        <th scope="col">Location</th>
+        <th scope="col">Date</th>
+        <th scope="col">Evaluation</th>
+        <th scope="col">Cost (€)</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td colspan="4">SUM</td>
+        <td>118</td>
+      </tr>
+    </tfoot>
+    <tr>
+      <th scope="row">Haircut</td>
+      <td>Hairdresser</td>
+      <td>12/09</td>
+      <td>Great idea</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th scope="row">Lasagna</td>
+      <td>Restaurant</td>
+      <td>12/09</td>
+      <td>Regrets</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th scope="row">Shoes</td>
+      <td>Shoeshop</td>
+      <td>13/09</td>
+      <td>Big regrets</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th scope="row">Toothpaste</td>
+      <td>Supermarket</td>
+      <td>13/09</td>
+      <td>Good</td>
+      <td>5</td>
+    </tr>
+  </table>
+
+  <table>
+    <caption>
+      Items Sold August 2016
+    </caption>
+    <thead>
+      <tr>
+        <td colspan="2" rowspan="2"></td>
+        <th colspan="3" scope="colgroup">Clothes</th>
+        <th colspan="2" scope="colgroup">Accessories</th>
+      </tr>
+      <tr>
+        <th scope="col">Trousers</th>
+        <th scope="col">Skirts</th>
+        <th scope="col">Dresses</th>
+        <th scope="col">Bracelets</th>
+        <th scope="col">Rings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th rowspan="3" scope="rowgroup">Belgium</th>
+        <th scope="row">Antwerp</th>
+        <td>56</td>
+        <td>22</td>
+        <td>43</td>
+        <td>72</td>
+        <td>23</td>
+      </tr>
+      <tr>
+        <th scope="row">Gent</th>
+        <td>46</td>
+        <td>18</td>
+        <td>50</td>
+        <td>61</td>
+        <td>15</td>
+      </tr>
+      <tr>
+        <th scope="row">Brussels</th>
+        <td>51</td>
+        <td>27</td>
+        <td>38</td>
+        <td>69</td>
+        <td>28</td>
+      </tr>
+      <tr>
+        <th rowspan="2" scope="rowgroup">The Netherlands</th>
+        <th scope="row">Amsterdam</th>
+        <td>89</td>
+        <td>34</td>
+        <td>69</td>
+        <td>85</td>
+        <td>38</td>
+      </tr>
+      <tr>
+        <th scope="row">Utrecht</th>
+        <td>80</td>
+        <td>12</td>
+        <td>43</td>
+        <td>36</td>
+        <td>19</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <caption>
+      Items Sold August 2016
+    </caption>
+    <thead>
+      <tr>
+        <td colspan="2" rowspan="2"></td>
+        <th colspan="3" id="clothes">Clothes</th>
+        <th colspan="2" id="accessories">Accessories</th>
+      </tr>
+      <tr>
+        <th id="trousers" headers="clothes">Trousers</th>
+        <th id="skirts" headers="clothes">Skirts</th>
+        <th id="dresses" headers="clothes">Dresses</th>
+        <th id="bracelets" headers="accessories">Bracelets</th>
+        <th id="rings" headers="accessories">Rings</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th rowspan="3" id="belgium">Belgium</th>
+        <th id="antwerp" headers="belgium">Antwerp</th>
+        <td headers="antwerp belgium clothes trousers">56</td>
+        <td headers="antwerp belgium clothes skirts">22</td>
+        <td headers="antwerp belgium clothes dresses">43</td>
+        <td headers="antwerp belgium accessories bracelets">72</td>
+        <td headers="amtwerp belgium accessories rings">23</td>
+      </tr>
+      <tr>
+        <th id="gent" headers="belgium">Gent</th>
+        <td headers="gent belgium clothes trousers">46</td>
+        <td headers="gent belgium clothes skirts">18</td>
+        <td headers="gent belgium clothes dresses">50</td>
+        <td headers="gent belgium accessories bracelets">61</td>
+        <td headers="gent belgium accessories rings">15</td>
+      </tr>
+      <tr>
+        <th id="brussels" headers="belgium">Brussels</th>
+        <td headers="brussels belgium clothes trousers">51</td>
+        <td headers="brussels belgium clothes skirts">27</td>
+        <td headers="brussels belgium clothes dresses">38</td>
+        <td headers="brussels belgium accessories bracelets">69</td>
+        <td headers="brussels belgium accessories rings">28</td>
+      </tr>
+      <tr>
+        <th rowspan="2" id="the-netherlands">The Netherlands</th>
+        <th id="amsterdam" headers="the-netherlands">Amsterdam</th>
+        <td headers="amsterdam the-netherlands clothes trousers">89</td>
+        <td headers="amsterdam the-netherlands clothes skirts">34</td>
+        <td headers="amsterdam the-netherlands clothes dresses">69</td>
+        <td headers="amsterdam the-netherlands accessories bracelets">85</td>
+        <td headers="amsterdam the-netherlands accessories rings">38</td>
+      </tr>
+      <tr>
+        <th id="ultrecht" headers="the-netherlands">Utrecht</th>
+        <td headers="ultrecht the-netherlands clothes trousers">80</td>
+        <td headers="ultrecht the-netherlands clothes skirts">12</td>
+        <td headers="ultrecht the-netherlands clothes dresses">43</td>
+        <td headers="ultrecht the-netherlands accessories bracelets">36</td>
+        <td headers="ultrecht the-netherlands accessories rings">19</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table>
+    <caption>
+      Data about the planets of our solar system (Planetary facts taken from <a href="http://nssdc.gsfc.nasa.gov/planetary/factsheet/" target="_blank" rel="noopener noreferrer">Nasa's Planetary Fact Sheet - Metric</a>).
+    </caption>
+    <colgroup>
+      <col span="2">
+      <col style="border: solid 4px black;">
+    </colgroup>
+    <thead>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+        <th id="name">Name</th>
+        <th id="mass">Mass (10<sup>24</sup> kg)</th>
+        <th id="diameter">Diameter (km)</th>
+        <th id="density">Density (kg/m<sup>3</sup>)</th>
+        <th id="gravity">Gravity (m/s<sup>2</sup>)</th>
+        <th id="length-of-day">Length of day (hours)</th>
+        <th id="distance-from-sun">Distance from Sun (10<sup>6</sup> km)</th>
+        <th id="mean-temperature">Mean temperature (°C)</th>
+        <th id="number-of-moons">Number of moons</th>
+        <th id="notes">Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th colspan="2" rowspan="4" id="terrestrial-planets">Terrestrial planets</th>
+        <th id="mercury" headers="terrestrial-planets name">Mercury</th>
+        <td headers="terrestrial-planets mercury mass">0.330</td>
+        <td headers="terrestrial-planets mercury diameter">4,879</td>
+        <td headers="terrestrial-planets mercury density">5427</td>
+        <td headers="terrestrial-planets mercury gravity">3.7</td>
+        <td headers="terrestrial-planets mercury length-of-day">4222.6</td>
+        <td headers="terrestrial-planets mercury distance-from-sun">57.9</td>
+        <td headers="terrestrial-planets mercury mean-temperature">167</td>
+        <td headers="terrestrial-planets mercury number-of-moons">0</td>
+        <td headers="terrestrial-planets mercury notes">Closet to the Sun</td>
+      </tr>
+      <tr>
+        <th id="venus" headers="terrestrial-planets name">Venus</th>
+        <td headers="terrestrial-planets venus mass">4.87</td>
+        <td headers="terrestrial-planets venus diameter">12,104</td>
+        <td headers="terrestrial-planets venus density">5243</td>
+        <td headers="terrestrial-planets venus gravity">8.9</td>
+        <td headers="terrestrial-planets venus length-of-day">2802.0</td>
+        <td headers="terrestrial-planets venus distance-from-sun">108.2</td>
+        <td headers="terrestrial-planets venus mean-temperature">464</td>
+        <td headers="terrestrial-planets venus number-of-moons">0</td>
+        <td headers="terrestrial-planets venus notes">&nbsp;</td>
+      </tr>
+      <tr>
+        <th id="earth" headers="terrestrial-planets name">Earth</th>
+        <td headers="terrestrial-planets earth mass">5.97</td>
+        <td headers="terrestrial-planets earth diameter">12,756</td>
+        <td headers="terrestrial-planets earth density">5514</td>
+        <td headers="terrestrial-planets earth gravity">9.8</td>
+        <td headers="terrestrial-planets earth length-of-day">24.0</td>
+        <td headers="terrestrial-planets earth distance-from-sun">149.6</td>
+        <td headers="terrestrial-planets earth mean-temperature">15</td>
+        <td headers="terrestrial-planets earth number-of-moons">1</td>
+        <td headers="terrestrial-planets earth notes">Our world</td>
+      </tr>
+      <tr>
+        <th id="mars" headers="terrestrial-planets name">Mars</th>
+        <td headers="terrestrial-planets mars mass">0.642</td>
+        <td headers="terrestrial-planets mars diameter">6,792</td>
+        <td headers="terrestrial-planets mars density">3933</td>
+        <td headers="terrestrial-planets mars gravity">3.7</td>
+        <td headers="terrestrial-planets mars length-of-day">24.7</td>
+        <td headers="terrestrial-planets mars distance-from-sun">227.9</td>
+        <td headers="terrestrial-planets mars mean-temperature">-65</td>
+        <td headers="terrestrial-planets mars number-of-moons">2</td>
+        <td headers="terrestrial-planets mars notes">The red planet</td>
+      </tr>
+      <tr>
+        <th rowspan="4" id="jovian-planets">Jovian planets</th>
+        <th rowspan="2" id="gas-giants" headers="jovian-planets">Gas giants</th>
+        <th id="jupiter" headers="jovian-planets gas-giants name">Jupiter</th>
+        <td headers="jovian-planets gas-giants jupiter mass">1898</td>
+        <td headers="jovian-planets gas-giants jupiter diameter">142,984</td>
+        <td headers="jovian-planets gas-giants jupiter density">1326</td>
+        <td headers="jovian-planets gas-giants jupiter gravity">23.1</td>
+        <td headers="jovian-planets gas-giants jupiter length-of-day">9.9</td>
+        <td headers="jovian-planets gas-giants jupiter distance-of-sun">778.6</td>
+        <td headers="jovian-planets gas-giants jupiter mean-temperature">-110</td>
+        <td headers="jovian-planets gas-giants jupiter number-of-moons">67</td>
+        <td headers="jovian-planets gas-giants jupiter notes">The largest planet</td>
+      </tr>
+      <tr>
+        <th id="saturn" headers="jovian-planets gas-giants name">Saturn</th>
+        <td headers="jovian-planets gas-giants saturn mass">568</td>
+        <td headers="jovian-planets gas-giants saturn diameter">120,536</td>
+        <td headers="jovian-planets gas-giants saturn density">687</td>
+        <td headers="jovian-planets gas-giants saturn gravity">9.0</td>
+        <td headers="jovian-planets gas-giants saturn length-of-day">10.7</td>
+        <td headers="jovian-planets gas-giants saturn distance-from-sun">1433.5</td>
+        <td headers="jovian-planets gas-giants saturn mean-temperature">-140</td>
+        <td headers="jovian-planets gas-giants saturn number-of-moons">62</td>
+        <td headers="jovian-planets gas-giants saturn notes"></td>
+      </tr>
+      <tr>
+        <th rowspan="2" id="ice-giants" headers="jovian-planets">Ice giants</th>
+        <th id="uranus" headers="jovian-planets ice-giants name">Uranus</th>
+        <td headers="jovian-planets ice-giants uranus mass">86.8</td>
+        <td headers="jovian-planets ice-giants uranus diameter">51,118</td>
+        <td headers="jovian-planets ice-giants uranus density">1271</td>
+        <td headers="jovian-planets ice-giants uranus gravity">8.7</td>
+        <td headers="jovian-planets ice-giants uranus length-of-day">17.2</td>
+        <td headers="jovian-planets ice-giants uranus distance-from-sun">2872.5</td>
+        <td headers="jovian-planets ice-giants uranus mean-temperature">-195</td>
+        <td headers="jovian-planets ice-giants uranus number-of-moons">27</td>
+        <td headers="jovian-planets ice-giants uranus notes"></td>
+      </tr>
+      <tr>
+        <th id="neptune" headers="jovian-planets ice-giants name">Neptune</th>
+        <td headers="jovian-planets ice-giants neptune mass">102</td>
+        <td headers="jovian-planets ice-giants neptune diameter">49,528</td>
+        <td headers="jovian-planets ice-giants neptune density">1638</td>
+        <td headers="jovian-planets ice-giants neptune gravity">11.0</td>
+        <td headers="jovian-planets ice-giants neptune length-of-day">16.1</td>
+        <td headers="jovian-planets ice-giants neptune distance-from-sun">4495.1</td>
+        <td headers="jovian-planets ice-giants neptune mean-temperature">-200</td>
+        <td headers="jovian-planets ice-giants neptune number-of-moons">14</td>
+        <td headers="jovian-planets ice-giants neptune notes"></td>
+      </tr>
+      <tr>
+        <th colspan="2" id="dwarf-planets">Dwarf Planets</th>
+        <th id="pluto" headers="dwarf-planets name">Pluto</th>
+        <td headers="dwarf-planets pluto mass">0.0146</td>
+        <td headers="dwarf-planets pluto diameter">2,370</td>
+        <td headers="dwarf-planets pluto density">2095</td>
+        <td headers="dwarf-planets pluto gravity">0.7</td>
+        <td headers="dwarf-planets pluto length-of-day">153.3</td>
+        <td headers="dwarf-planets pluto distance-from-sun">5906.4</td>
+        <td headers="dwarf-planets pluto mean-temperature">-225</td>
+        <td headers="dwarf-planets pluto number-of-moons">5</td>
+        <td headers="dwarf-planets pluto notes">Declassified as a planet in 2006, but this <a href="http://www.usatoday.com/story/tech/2014/10/02/pluto-planet-solar-system/16578959/" target="_blank" rel="noopener noreferrer">remains controversial</a>.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+
+</html>
