@@ -299,12 +299,23 @@
 
 ---
 
-# Daily Log- 2025/01/22
+# Daily Log - 2025/01/22
 
 ## What I worked on:
 - SVGs, Tables and Default Styles
 
 ## Next step:
 - CSS Units and Text Styles
+
+---
+
+# Daily Log - 2025/01/29
+
+## What I worked on:
+- CSS units (sizes), various text styles, various CSS properties
+- Advanced selectors, positioning, CSS functions, custom properties
+
+## Next step:
+- Browser compatibility, frameworks and preprocessors
 
 ---
