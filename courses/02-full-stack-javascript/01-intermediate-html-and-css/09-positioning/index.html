@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Positioning</title>
+
+  <style>
+    html {
+      width: 100vw;
+      font-size: clamp(1rem, 0.75rem + 1.5vw, 2rem);
+      overflow-x: hidden;
+    }
+
+    div {
+      border: solid 2px;
+    }
+
+    .placeholder {
+      opacity: 0;
+    }
+
+    .static {
+      position: static;
+    }
+
+    .relative {
+      position: relative;
+      top: 10px;
+      left: 20px;
+      margin-bottom: 1em;
+    }
+
+    .absolute {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+    }
+
+    .fixed {
+      position: fixed;
+      top: 80%;
+      left: 5%;
+    }
+
+    .sticky {
+      position: sticky;
+      top: 0;
+      max-inline-size: 40ch;
+    }
+
+    .filler {
+      height: 500vh;
+      max-inline-size: 41ch;
+    }
+  </style>
+<head>
+
+<body>
+  <div class="static">I am right where I should be, i.e., static.</div>
+  <div class="relative">I am 10px top and 20px left away from my original position, i.e., relative.</div>
+  <div class="absolute">I am 30% top and 50% left away relative to an ancestor element, i.e., absolute.</div>
+  <div class="fixed">I am 80% top and 5% left away relative to the viewport, i.e., fixed.</div>
+  <div class="sticky">I will be 0% top, i.e., sticky.</div>
+
+  <div class="filler">
+    <p>I am just some filler texts for testing and scrolling purposes.</p>
+  </div>
+</body>
+
+</html>

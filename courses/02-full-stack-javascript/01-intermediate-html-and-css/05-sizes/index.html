@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sizes</title>
+
+  <style>
+    html { font-size: 20px; }
+
+    .pixel { font-size: 12px; }
+    .centimeter { font-size: 1.2cm; }
+    .inch { font-size: 1.2in; }
+    .-em { font-size: 1.2em; }
+    .root-em { font-size: 12rem; }
+    .view-width { font-size: 12vw; }
+    .view-height { font-size: 12vh; }
+    .view-minimum { font-size: 12vmin; }
+    .view-maximum { font-size: 12vmax; }
+
+    .wrapper { font-size: 1em;  }
+    .px { width: 200px; }
+    .vw { width: 10vw; }
+    .em { width: 10em; }
+    .percent { width: 40%; }
+
+    .box {
+      background-color: lightblue;
+      border: 5px solid darkblue;
+      padding: 10px;
+      margin: 1em 0;
+    }
+
+    .notepad {
+      border: solid 2px;
+    }
+
+    .notepad > h2 {
+      opacity: 0.6;
+    }
+
+    .notepad > p {
+      line-height: 2em;
+      background-image: repeating-linear-gradient(
+        to top,
+        lightskyblue 0 2px,
+        transparent 2px 1lh
+      );
+    }
+  </style>
+<head>
+
+<body>
+  <div class="pixel">I am 12px.</div>
+  <div class="centimeter">I am 1.2cm.</div>
+  <div class="inch">I am 1.2in.</div>
+  <div class="-em">I am 1.2em.</div>
+  <div class="root-em">I am 12rem.</div>
+  <div class="view-width">I am 12vw.</div>
+  <div class="view-height">I am 12vh.</div>
+  <div class="view-minimum">I am 12vmin.</div>
+  <div class="view-maximum">I am 12vmax.</div>
+
+  <div class="wrapper">
+    <div class="box px">I am 200px wide.</div>
+    <div class="box vw">I am 10vw wide.</div>
+    <div class="box em">I am 10em wide.</div>
+    <div class="box percent">I am 40% wide.</div>
+  </div>
+
+  <div class="notepad">
+    <h2>An Opaque Notepad Title</h2>
+    <p>I am a paragraph.</p>
+    <p>I am also a paragraph.</p>
+    <p>So am I!</p>
+    <p>Me too!</p>
+  </div>
+</body>
+
+</html>

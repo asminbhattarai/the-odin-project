@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Properties</title>
+
+  <style>
+    :root,
+    :root.light {
+      --primary-color: black;
+      --background-color: white;
+      --accent-color: orange;
+      --link-color: green;
+      --theme-name: "light";
+    }
+
+    :root.dark {
+      --primary-color: white;
+      --background-color: black;
+      --accent-color: blue;
+      --link-color: lightgreen;
+      --theme-name: "dark";
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary-color: white;
+        --background-color: black;
+        --accent-color: blue;
+        --link-color: lightgreen;
+        --theme-name: "dark";
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color: var(--primary-color);
+      background: var(--background-color);
+      font-size: clamp(1rem, 0.75rem + 1.5vw, 2rem);
+
+      & :link {
+        color: var(--link-color);
+      }
+
+      & :visited {
+        color: var(--accent-color)
+      }
+    }
+
+    header {
+      height: 5em;
+      margin-bottom: 1em;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+    }
+
+    button {
+      padding: 0.2em;
+      font-size: clamp(0.8rem, 0.6rem + 1.2vw, 1.6rem);
+      color: var(--accent-color);
+      background: var(--link-color);
+      border: none;
+      border-radius: 0.2em;
+      cursor: pointer;
+      transition: box-shadow ease-in-out 0.2s;
+    }
+
+    button:hover {
+      box-shadow: 0 0 0.2em 0.1em var(--accent-color);
+    }
+
+    main {
+      margin: 0.2em;
+      padding: 0.2em;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: baseline;
+      gap: 0.5em;
+    }
+
+    .items {
+      flex: 1 0 33ch;
+    }
+  </style>
+<head>
+
+<body>
+
+  <header>
+    <h1>Custom Properties</h1>
+    <button>Change Theme</button>
+  </header>
+
+  <main>
+    <div class="items">Consectetur debitis consequatur laborum similique earum.</div>
+    <div class="items">Consectetur iste pariatur omnis repudiandae minima, excepturi accusantium Aliquid et commodi minus veritatis tempore!</div>
+    <div class="items">Dolor fugiat ab optio magnam rerum?</div>
+    <div class="items">Ipsum distinctio cum numquam impedit modi Possimus porro officia eius fugit cupiditate quae.</div>
+    <div class="items">Ipsum beatae dignissimos amet sed optio.</div>
+    <div class="items">Elit consequatur voluptatibus obcaecati eum error Earum quidem odio tenetur neque repudiandae.</div>
+  </main>
+
+  <script>
+    function toggleTheme() {
+      const root = document.documentElement;
+      
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        root.classList.toggle('light');
+      } else {
+        root.classList.toggle('dark');
+      }
+    }
+
+    document.querySelector('button').addEventListener('click', toggleTheme)
+  </script>
+
+</body>
+
+</html>

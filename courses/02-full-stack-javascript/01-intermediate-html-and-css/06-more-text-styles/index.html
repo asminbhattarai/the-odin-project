@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Styles</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+  <link href="/fonts/Barriecito-Regular.ttf" type="font/ttf"
+  rel="preload" as="font" crossorigin>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+    :root {
+      --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+
+    body {
+      font-family: var(--system-ui);
+      font-size: clamp(1rem, 0.75rem + 1.5vw,  2rem);
+      max-inline-size: 66ch;
+    }
+
+    .cedarville-cursive {
+      font-family: "Cedarville Cursive", serif;
+    }
+
+    .cedarville-cursive-regular {
+        font-family: "Cedarville Cursive", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .pacifico {
+      font-family: "Pacifico", serif;
+    }
+
+    .pacifico-regular {
+      font-family: "Pacifico", serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: the-cool-one;
+      src: url('./fonts/Allura-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+
+    .the-cool-one {
+      font-family: the-cool-one, sans-serif;
+    }
+
+    @font-face {
+      font-family: the-test-one;
+      src: url('./fonts/Barriecito-Regular.ttf') format('truetype');
+      font-display: fallback;
+    }
+
+    .the-test-one {
+      font-family: the-test-one;
+    }
+
+    .italics {
+      font-style: italic;
+    }
+
+    .narrow {
+      letter-spacing: -0.15em;
+    }
+
+    .wide {
+      letter-spacing: 0.5em;
+    }
+
+    .ok {
+      letter-spacing: 0.1em;
+    }
+
+    .short {
+      line-height: 0.5;
+    }
+
+    .tall {
+      line-height: 1.5;
+    }
+
+    .capitalize {
+      text-transform: capitalize;
+    }
+
+    .text-shade {
+      text-shadow: 2px 2px 1px #234;
+    }
+
+    .overflowing {
+      width: 6em;
+      padding-right: 1em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      resize: horizontal;
+    }
+
+  </style>
+
+<head>
+
+<body>
+  <h1 class="cedarville-cursive">I AM CURSIVE HEADER</h1>
+  <p class="cedarville-cursive-regular">And I am a cursive paragraph!</p>
+
+  <h1 class="pacifico">ME TOO</h1>
+  <p class="pacifico-regular">But I'm the better one!</p>
+
+  <h1>THE ROOT ONE</h1>
+  <p>I'm simply the best!</p>
+
+  <h1 class="the-cool-one">The Cool One</h1>
+  <p class="the-cool-one">Read the name!</p>
+
+  <h1 class="the-test-one">The Test One</h1>
+  <p class="the-test-one">Noooo! You cannot use me for testing!</p>
+
+  <p>The <span class="italics">Queen Mary</span> set sail yesterday.</p>
+  <p>Queen <em>Mary</em> set sail yesterday.</p>
+
+  <p class="narrow">This looks narrow!</p>
+  <p class="wide">This looks wide!</p>
+  <p class="ok">This looks better!</p>
+
+  <p class="short">This is <br> ridiculously short!</p>
+  <p class="tall">Tall but OK, <br> I guess!</p>
+  <p>Just the <br> default one!</p>
+
+  <p class="capitalize">Capitalizing? So easy in CSS! But so hard in JavaScript!</p>
+
+  <p class="text-shade">Nice shades!</p>
+
+  <p class="overflowing">Expand me. Wait! Was I oveflowing?</p>
+
+  <p>Wrap after 66th character for better format? or readability? Well, whatever! Lorem dolor debitis nam exercitationem quod sunt. Corporis soluta iste officiis rerum dicta consequuntur, nulla, officiis. Debitis velit soluta dolorum perspiciatis error labore, quo accusamus?</p>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Functions</title>
+
+  <style>
+    :root {
+      --header: 5rem;
+      --footer: 3rem;
+      --main: calc(100vh - calc(var(--header) + var(--footer)));
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: clamp(1rem, 0.75rem + 1.5vw, 2rem);
+    }
+
+    header {
+      margin: auto;
+      height: var(--header);
+      border: solid 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-inline-size: min(66ch, 100vw - 2rem);
+    }
+
+    main {
+      height: var(--main);
+      border: solid 2px;
+    }
+
+    footer {
+      margin: auto;
+      height: var(--footer);
+      border: solid 2px;
+      max-inline-size: max(66ch, 100vw - 2rem);
+  </style>
+<head>
+
+<body>
+  <header>
+    I am the header.
+  </header>
+
+  <main>
+    I am the main.
+  </main>
+
+  <footer>
+    I am the footer.
+  </footer>
+</body>
+
+</html>

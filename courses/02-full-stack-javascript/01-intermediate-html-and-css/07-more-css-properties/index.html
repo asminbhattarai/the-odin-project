@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background, Border, Box Shadow, Overflow and Opacity</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: clamp(1rem, 0.75rem + 1.5vw, 2rem);
+    }
+
+    .color-background {
+      padding: 1em;
+      background: lime;
+    }
+
+    .starry-background {
+      width: 100vw;
+      height: 30vh;
+      background: url('./images/star.png') #000;
+    }
+
+    .red-border {
+      padding: 1em;
+      border: solid 4px red;
+      border-radius: 8px 16px 32px 64px;
+    }
+
+    .shadow {
+      padding: 1em;
+      box-shadow:
+        0 0 3px 3px red inset,
+        0 0 3px 3px blue;
+    }
+
+    .overflowing {
+      margin: 0.5em;
+      padding: 1em;
+      width: 10em;
+      height: 5em;
+      border: solid 1px;
+      overflow: auto;
+    }
+
+    .semi-visible {
+      opacity: 0.5;
+    }
+  </style>
+<head>
+
+<body>
+  <div class="color-background">
+    Not lame! LIME!
+  </div>
+
+  <div class="starry-background"></div>
+
+  <div class="red-border">Red is too bright!</div>
+
+  <div class="shadow">Why border when you have box shadow?</div>
+
+  <div class="overflowing">Elit esse aspernatur cum iure eveniet incidunt. Hic nemo magnam voluptatibus excepturi expedita at? Ullam voluptatem praesentium tenetur non quod magni! Aut fugiat sint labore deleniti dolores modi. Aliquid quod</div>
+
+  <div class="semi-visible">I am semi-visible! Should have just been fully visible or invisible. :(</div>
+</body>
+
+</html>
