@@ -319,3 +319,13 @@
 - Browser compatibility, frameworks and preprocessors
 
 ---
+
+# Daily Log - 2025/01/30
+
+## What I worked on:
+- Learned about browser compatibility, frameworks and preprocessors.
+
+## Next step:
+- Forms basic and validation
+
+---
