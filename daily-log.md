@@ -326,6 +326,17 @@
 - Learned about browser compatibility, frameworks and preprocessors.
 
 ## Next step:
-- Forms basic and validation
+- Forms basics and validation
+
+---
+
+# Daily Log - 2025/01/31
+
+## What I worked on:
+- Form basics (not completed)
+- Learned about UX, HTML and various case studies on web
+
+## Next step:
+- Form basics and validation
 
 ---
