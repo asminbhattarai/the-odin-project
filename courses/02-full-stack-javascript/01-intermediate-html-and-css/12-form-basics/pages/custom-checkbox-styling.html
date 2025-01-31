@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Checkbox Styling</title>
+
+  <style>
+    :root {
+      --accent-color: crimson;
+      --form-control-color: var(--accent-color);
+      --form-control--disabled: grey;
+      --form-background: white;
+      --font-family: system-ui, sans-serif;
+      --responsive-font-size: clamp(1em, 0.75em + 1.5vw, 2em);
+    }
+
+    *,
+    *:before,
+    *:after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    form {
+      margin: 0 0.5em;
+      min-height: 100vh;
+      display: grid;
+      place-content: center;
+    }
+
+    fieldset {
+      padding: 1.5em;
+      border: 0.8em groove var(--accent-color);
+    }
+
+    legend {
+      margin: auto;
+      padding: 0.5em;
+      font-family: var(--font-family);
+      font-size: var(--responsive-font-size);
+      font-weight: bold;
+    }
+
+    .form-control {
+      font-family: var(--font-family);
+      font-size: var(--responsive-font-size);
+      font-weight: bold;
+      line-height: 1.1;
+      display: grid;
+      grid-template-columns: 1em auto;
+      gap: 0.5em;
+    }
+
+    .form-control + .form-control {
+      margin-top: 1em;
+    }
+
+    .form-control--disabled {
+      color: var(--form-control--disabled);
+      cursor: not-allowed;
+    }
+
+    input[type="checkbox"] {
+      width: 1.15em;
+      height: 1.15em;
+      appearance: none;
+      font: inherit;
+      color: currentColor;
+      background: var(--form-background);
+      border: solid 0.15em currentColor;
+      border-radius: 0.15em;
+      transform: translateY(-0.075em);
+      display: grid;
+      place-content: center;
+    }
+
+    input[type="checkbox"]::before {
+      content: "";
+      width: 0.65em;
+      height: 0.65em;
+      background: CanvasText;
+      box-shadow: inset 1em 1em var(--form-control-color);
+      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+      transform: scale(0);
+      transform-origin: bottom left;
+      transition: 120ms transform ease-in-out;
+    }
+
+    input[type="checkbox"]:checked::before {
+      transform: scale(1);
+    }
+
+    input[type="checkbox"]:focus {
+      outline: max(2px, 0.15em) solid currentColor;
+      outline-offset: max(2px, 0.15em);
+    }
+
+    input[type="checkbox"]:disabled {
+      --form-control-color: var(--form-control-disabled);
+      color: var(--form-control-disabled);
+      cursor: not-allowed;
+    }
+  </style>
+<head>
+
+<body>
+  <form action="" method="">
+
+    <fieldset>
+      <legend>Custom Checkboxes</legend>
+
+      <label class="form-control" for="checkbox">
+        <input type="checkbox" name="checkbox">
+        Checkbox
+      </label>
+
+      <label class="form-control" for="checkbox-checked">
+        <input type="checkbox" name="checkbox-checked" checked>
+        Checkbox - checked
+      </label>
+
+      <label class="form-control form-control--disabled" for="checkbox-disabled">
+        <input type="checkbox" name="checkbox-disabled" disabled>
+        Checkbox Disabled
+      </label>
+
+      <label class="form-control form-control--disabled" for="checkbox-disabled-checked">
+        <input type="checkbox" name="checkbox-disabled-checked" checked disabled>
+        Checkbox Disabled - checked
+      </label>
+    </fieldset>
+
+  </form>
+</body>
+
+</html>

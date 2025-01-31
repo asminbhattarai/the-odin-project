@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Form</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: clamp(1rem, 0.75rem + 1.5vw, 2rem);
+    }
+
+    form {
+      accent-color: red;
+    }
+  </style>
+<head>
+
+<body>
+  <form action="https://httpbin.org/post" method="post">
+
+    <fieldset>
+      <legend>Basic Form</legend>
+
+      <fieldset>
+        <legend>Personal Details</legend>
+
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" placeholder="John"><br>
+
+        <label for="last_name">Second Name:</label>
+        <input type="text" id="last_name" name="last_name" placeholder="Doe"><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" placeholder="18"><br>
+
+        <label for="gender">Gender:</label>
+        <input type="radio" id="male" name="gender" value="male" checked>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Others</label><br>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com"><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Password"><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob"><br>
+
+        <label for="annual-income">Annual Income:</label>
+        <input type="number" id="annual-income" name="annual-income" placeholder="1000"><br>
+
+        <label for="additional-details">Additional Details:</label><br>
+        <textarea cols="30" rows="10" id="additional-details" name="additional-details" placeholder="Feel free to write more about yourself..."></textarea><br>
+      </fieldset>
+
+      <fieldset>
+        <legend>What do you want to buy</legend>
+
+        <label for="showroom"></label>
+        <select id="showroom" name="showroom">
+          <optgroup label="Cars">
+            <option value="mercedes">Mercedes</option>
+            <option value="tesla">Tesla</option>
+            <option value="volvo">Volvo</option>
+            <option value="bmw">BMW</option>
+            <option value="mini">Mini</option>
+            <option value="ford">Ford</option>
+          </optgroup>
+          <optgroup label="Motorcycles">
+            <option value="yamaha">Yamaha</option>
+            <option value="suzuki">Suzuki</option>
+          </optgroup>
+        </select><br>
+
+        <label for="payment-method">Payment Method:</label>
+        <input type="checkbox" id="cash" name="payment-method" value="cash" checked>
+        <label for="cash">Cash</label>
+        <input type="checkbox" id="online" name="payment-method" value="online">
+        <label for="online">Online</label><br><br>
+
+      </fieldset>
+
+      <button>Click Me!</button>
+      <button type="button">Click Meeee!</button>
+      <button type="submit">Submit</button>
+      <button type="reset">Reset</button>
+
+    </fieldset>
+
+  </form>
+
+  <h1></h1>
+
+  <script>
+    const firstName = document.querySelector("#first_name");
+    const lastName = document.querySelector("#last_name");
+    const submit = document.querySelector("button[type='submit']");
+    const heading = document.querySelector("h1");
+
+    submit.addEventListener("click", (event) => {
+      event.preventDefault();
+      heading.innerText = `Hello, ${firstName.value} ${lastName.value}`;
+    });
+  </script>
+</body>
+
+</html>
