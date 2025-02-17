@@ -340,3 +340,13 @@
 - Form basics and validation
 
 ---
+
+# Daily Log - 2025/02/17
+
+## What I worked on:
+- Form basics completed
+
+## Next step:
+- Form validation
+
+---
